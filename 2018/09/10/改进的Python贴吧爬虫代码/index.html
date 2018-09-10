@@ -1,0 +1,922 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="爬虫,Python," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。">
+<meta name="keywords" content="爬虫,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="改进的Python贴吧爬虫代码 ">
+<meta property="og:url" content="http://blog.shineee.win/2018/09/10/改进的Python贴吧爬虫代码/index.html">
+<meta property="og:site_name" content="闲谈梦落花">
+<meta property="og:description" content="之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-24T12:07:52.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="改进的Python贴吧爬虫代码 ">
+<meta name="twitter:description" content="之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.shineee.win/2018/09/10/改进的Python贴吧爬虫代码/"/>
+
+
+
+
+
+  <title>改进的Python贴吧爬虫代码  | 闲谈梦落花</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100476047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?38cf35b14428fed12ee207849cffa5a6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">闲谈梦落花</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">长路漫漫离家，伴君不负韶华。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.shineee.win/2018/09/10/改进的Python贴吧爬虫代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shineee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oekt5d96o.bkt.clouddn.com/16-10-6/64457700.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="闲谈梦落花">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">改进的Python贴吧爬虫代码 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T23:21:49+08:00">
+                2018-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/代码/" itemprop="url" rel="index">
+                    <span itemprop="name">代码</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/09/10/改进的Python贴吧爬虫代码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/10/改进的Python贴吧爬虫代码/" class="leancloud_visitors" data-flag-title="改进的Python贴吧爬虫代码 ">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。</p>
+<a id="more"></a>
+<p>可能是教程时间有点早了，多数都是两三年前的，基本都是用正则表达式来提取关键信息，而且还专门写了一个类来处理各种HTML标签。正则表达式并不难学，但是要真正弄清除却很耗时间，尤其对于新手来说，读懂正则表达式是一件很头疼的事，写出正确的表达式更头疼。</p>
+<p>后来学习了requests和beautiful soup两个库，那感觉，仿佛春风拂过泸沽湖,秋雨浸润九寨沟。怎一个<strong>爽</strong>字了得。</p>
+<p>关于requests和beautiful soup两个库的教程网上有很多，我看的是<a href="http://cuiqingcai.com/1052.html" target="_blank" rel="noopener">崔庆才的博客</a>,内容十分全面，里面的Python爬虫教程也十分适合入门学习。</p>
+<p>在其原有的贴吧爬虫代码的基础上，我将提取内容的正则表达式全部替换成了用beautiful soup来获取网页标签内容。</p>
+<p>简单来说，Beautiful Soup是python的一个库，最主要的功能是从网页抓取数据。官方解释如下：</p>
+<blockquote>
+<p>Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。</p>
+<p>Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup就不能自动识别编码方式了。然后，你仅仅需要说明一下原始编码方式就可以了。</p>
+<p>Beautiful Soup已成为和lxml、html6lib一样出色的python解释器，为用户灵活地提供不同的解析策略或强劲的速度。</p>
+</blockquote>
+<p>上代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment">#__author__shineee</span></span><br><span class="line"><span class="comment">#__time__2016.10__</span></span><br><span class="line"><span class="comment">#__Python27__</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tieba</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, baseUrl, seeLZ)</span>:</span></span><br><span class="line">		<span class="comment"># base链接地址</span></span><br><span class="line">		self.baseURL = baseUrl</span><br><span class="line">		<span class="comment"># 是否只看楼主</span></span><br><span class="line">		self.seeLZ = <span class="string">'?see_lz='</span> + str(seeLZ)</span><br><span class="line">		<span class="comment"># 全局file变量，文件写入操作对象</span></span><br><span class="line">		self.file = <span class="keyword">None</span></span><br><span class="line">		<span class="comment">#默认的标题，如果没有成功获取到标题的话则会用这个标题</span></span><br><span class="line">		self.defaultTitle = <span class="string">u"百度贴吧"</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(self, pageNum)</span>:</span></span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">		<span class="comment"># 构建URL</span></span><br><span class="line">			url = self.baseURL + self.seeLZ + <span class="string">'&amp;pn='</span> + str(pageNum)</span><br><span class="line">			response = requests.get(url).text.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">			<span class="comment"># 返回UTF-8格式编码内容</span></span><br><span class="line">			<span class="keyword">return</span> response.replace(<span class="string">'&lt;br&gt;'</span>, <span class="string">'\n'</span>)</span><br><span class="line">		<span class="comment"># 无法连接，报错</span></span><br><span class="line">		<span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</span><br><span class="line">			<span class="keyword">if</span> hasattr(e, <span class="string">"reason"</span>):</span><br><span class="line">				<span class="keyword">print</span> <span class="string">u"连接百度贴吧失败,错误原因"</span>, e.reason</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># 获取帖子标题</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">getTitle</span><span class="params">(self, page)</span>:</span></span><br><span class="line">		<span class="comment">#新建soup对象</span></span><br><span class="line">		soup = BeautifulSoup(page)</span><br><span class="line">        <span class="comment">#获取标题</span></span><br><span class="line">		title = unicode(soup.h3.string)</span><br><span class="line">		<span class="keyword">if</span> title:</span><br><span class="line">			<span class="comment"># 如果存在，则返回标题</span></span><br><span class="line">			<span class="comment"># 若文件名中有/符号则替换掉 否则写入文件时会出错</span></span><br><span class="line">			<span class="keyword">return</span> title.replace(<span class="string">'/'</span>, <span class="string">' '</span>)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># 获取帖子一共有多少页</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">getPageNum</span><span class="params">(self, page)</span>:</span></span><br><span class="line">		soup = BeautifulSoup(page)</span><br><span class="line">        <span class="comment">#利用soup的select规则找出帖子总页码数</span></span><br><span class="line">		page = soup.select(<span class="string">'li[style="margin-left:8px"]'</span>)</span><br><span class="line">		<span class="keyword">for</span> ii <span class="keyword">in</span> page:</span><br><span class="line">			nums = ii.get_text()</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		num = re.findall(<span class="string">r'[0-9]+(?=[^0-9]*$)'</span>, nums)</span><br><span class="line">		result = <span class="string">''</span>.join(num)</span><br><span class="line">		<span class="keyword">if</span> result:</span><br><span class="line">			<span class="keyword">return</span> result</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">setFileTitle</span><span class="params">(self, title)</span>:</span></span><br><span class="line">		<span class="comment"># 如果标题不是为None，即成功获取到标题</span></span><br><span class="line">		<span class="keyword">if</span> title <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">			self.file = open(title + <span class="string">".txt"</span>, <span class="string">"w+"</span>)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			self.file = open(self.defaultTitle + <span class="string">".txt"</span>, <span class="string">"w+"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 获取每一层楼的内容,传入页面内容</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">getContent</span><span class="params">(self, page)</span>:</span></span><br><span class="line">		<span class="comment"># 匹配所有楼层的内容</span></span><br><span class="line">		contents1 = []</span><br><span class="line">		contents2 = []</span><br><span class="line">		soup = BeautifulSoup(page)</span><br><span class="line">        <span class="comment">#获取帖子发布时间</span></span><br><span class="line">		time = soup.select(<span class="string">'div[class="post-tail-wrap"]'</span>)</span><br><span class="line">		<span class="keyword">for</span> ii <span class="keyword">in</span> time:</span><br><span class="line">			texts = ii.get_text(<span class="string">'  '</span>)</span><br><span class="line">            <span class="comment">#将无用信息去除掉</span></span><br><span class="line">			texts2 = texts.rjust(<span class="number">80</span>).replace(<span class="string">u'举报  |  侵权举报  有害信息举报  '</span>, <span class="string">''</span>)</span><br><span class="line">			contents1.append(texts2 + <span class="string">'\n'</span> + <span class="string">'\n'</span> + <span class="string">'-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-'</span>)</span><br><span class="line">		<span class="comment"># 提取正文内容</span></span><br><span class="line">		items = soup.select(<span class="string">'cc'</span>)</span><br><span class="line">		<span class="keyword">for</span> iii <span class="keyword">in</span> items:</span><br><span class="line">			contents2.append(iii.get_text().encode(<span class="string">'utf8'</span>).lstrip())</span><br><span class="line">        <span class="comment">#将两个list合并为一个list 重叠合并</span></span><br><span class="line">		contents = list(chain.from_iterable(zip(contents2, contents1)))</span><br><span class="line">		<span class="keyword">return</span> contents</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 向文件写入每一楼的信息</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">writeData</span><span class="params">(self, contents)</span>:</span></span><br><span class="line">		<span class="keyword">for</span> item <span class="keyword">in</span> contents:</span><br><span class="line">			self.file.write(item+<span class="string">'\n'</span>+<span class="string">'\n'</span>+<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">		indexPage = self.getPage(<span class="number">1</span>)</span><br><span class="line">		pageNum = self.getPageNum(indexPage)</span><br><span class="line">		title = self.getTitle(indexPage)</span><br><span class="line">		self.setFileTitle(title)</span><br><span class="line">		<span class="keyword">if</span> pageNum == <span class="keyword">None</span>:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"URL已失效，请重试"</span></span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"该帖子共有"</span> + str(pageNum) + <span class="string">"页"</span></span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, int(pageNum) + <span class="number">1</span>):</span><br><span class="line">				<span class="keyword">print</span> <span class="string">"正在写入第"</span> + str(i) + <span class="string">"页数据"</span></span><br><span class="line">				page = self.getPage(i)</span><br><span class="line">				contents = self.getContent(page)</span><br><span class="line">				self.writeData(contents)</span><br><span class="line">				<span class="comment"># 出现写入异常</span></span><br><span class="line">		<span class="keyword">except</span> IOError, e:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"写入异常，原因"</span> + e.message</span><br><span class="line">		<span class="keyword">finally</span>:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"写入任务完成"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">u"请输入帖子代号"</span></span><br><span class="line">baseURL = <span class="string">'http://tieba.baidu.com/p/'</span> + str(raw_input(<span class="string">u'http://tieba.baidu.com/p/'</span>))</span><br><span class="line">seeLZ = raw_input(<span class="string">u"是否只获取楼主发言，是输入1，否输入0\n"</span>)</span><br><span class="line">bdtb = Tieba(baseURL, seeLZ)</span><br><span class="line">bdtb.start()</span><br></pre></td></tr></table></figure>
+<p>相比较正则表达式而言，soup更加清晰明了，也更便于操作。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/关于绑定github pages二级域名/" rel="next" title="关于绑定github pages二级域名">
+                <i class="fa fa-chevron-left"></i> 关于绑定github pages二级域名
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oekt5d96o.bkt.clouddn.com/16-10-6/64457700.jpg"
+               alt="shineee" />
+          <p class="site-author-name" itemprop="name">shineee</p>
+           
+              <p class="site-description motion-element" itemprop="description">长路漫漫离家，伴君不负韶华。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/orangeshinee" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/an2ning" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/shine-smile" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shineee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "eac70afbf5d442379579eb655a08a171",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("b7v7pcHnmIMzobQ0xINa84u9-gzGzoHsz", "lr0TjpqRKJRb76tCdCqNQYqT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+	<script type="text/javascript" src="/js/src/love.js"></script>
+	
+  <!-- 背景动画 -->
+	<script type="text/javascript" src="/js/src/bg.js"></script>
+
+
+</body>
+</html>
