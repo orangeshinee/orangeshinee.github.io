@@ -15,12 +15,17 @@
 
 <html lang="{{ config.language }}">
 <head>
+
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
   {% include '_partials/head/head-unique.swig' %}
   {{- next_inject('head') }}
   <title>{% block title %}{% endblock %}</title>
   {{ partial('_third-party/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
   {{ partial('_scripts/noscript.swig', {}, {cache: theme.cache.enable}) }}
+    <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/cliclove.js"></script>
+
+  
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang or page.language or config.language }}">
@@ -76,8 +81,7 @@
     </div>
   {%- endif %}
   
-  <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/clicklove.js"></script>
+
 
 </body>
 </html>
