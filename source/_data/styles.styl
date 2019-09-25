@@ -2,7 +2,8 @@
 
 //页面背景
 body {
-	background: #f5f7f9;
+	//background: #f5f7f9;
+    background-image: linear-gradient(to left , #fff1eb 0%, #ace0f9 100%);
 }
 
 main {
@@ -10,14 +11,18 @@ main {
 }
 
 
-//文章样式
-.post {
+//首页文章样式
+article  {
     margin-bottom: 70px;
     padding: 2em 64px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     background-color: #fff;
 }
 
+.posts-expand .home .post-title,
+.posts-expand .home .post-meta {
+  text-align: center;
+}
 
 //头像旋转
 .ds-top-threads li a:hover {
@@ -26,7 +31,10 @@ main {
 //首页头部样式
 .header {
 	height: 150px;
-    background: url("https://shinepics-1254247808.cos.ap-guangzhou.myqcloud.com/17-6-5/41121626.jpg");
+    background: url("https://i.loli.net/2019/09/25/6p37gyX9oBIYA1d.png");
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to left , #fff1eb 0%, #ace0f9 100%);
+
 }
 
 //更改display为block，使标题独占居中
@@ -39,7 +47,7 @@ main {
     float: none;
     margin-left: 0px;
     text-align: center;
-	padding-bottom: 40px;
+	padding-bottom: 24px;
 }
 .menu {
     float: none;
@@ -56,12 +64,12 @@ main {
 
 .site-meta .site-title {
     font-size: 40px;
-    font-family: 'Comic Sans MS', sans-serif;
-    color: #649ab6;
+    color: #f37055;
 }
 //首页尾部样式
 .footer-inner {
-    font-family: 'Comic Sans MS', sans-serif;
+    font-family: 'Noto Serif SC';
+    font-weight: bold;
     text-align: center;
     color: #4c618f;
 }
@@ -69,7 +77,7 @@ main {
 .site-author-name {
     margin: 48px 0 0;
     color: #090909;
-    font-family: 'Comic Sans MS', sans-serif;
+    font-family: 'Mansalva', sans-serif;
 }
 .links-of-blogroll {
     font-size: 14px;
@@ -86,7 +94,7 @@ main {
 .sidebar {
     background-size: 240px 499px;
     background-position-y: 1vh;
-	background: url("https://shinepics-1254247808.cos.ap-guangzhou.myqcloud.com/17-6-5/42890455.jpg")
+	background-color: #f5f7f9;
     box-shadow: inset 2px 2px 40px #bdb2b2;
 }
 .sidebar a {
@@ -121,6 +129,8 @@ main {
 .post-body {
     color: #000;
 }
+
+
 // 自定义的引用样式
 blockquote.question {
     color: #555;
@@ -350,6 +360,7 @@ p#div-border-bottom-purple {
 }
 .post-button {
     margin-top: 20px;
+    text-align: center;
 }
 // 顶栏宽度
 .container .header-inner {
@@ -767,20 +778,10 @@ pre .deletion {
         margin: 0px 10px !important;
     }
 }
-//十二生肖
-.chinese-zodiac {
-    float: right;
-}
-@font-face {
-  font-family: 'chinese-zodiac';
-  font-display: swap;
-  src: url('/fonts/chinese-zodiac.eot');
-  src: url('/fonts/chinese-zodiac.eot') format('embedded-opentype'),
-       url('/fonts/chinese-zodiac.woff2') format('woff2'),
-       url('/fonts/chinese-zodiac.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+
+
+
+
 .symbolic-animals {
   display: inline-block;
   font: normal normal normal 14px/1 chinese-zodiac;
@@ -807,7 +808,7 @@ pre .deletion {
     background-color: rgb(255, 255, 255);
     border-radius: 3px;
     font-size: 15px;
-    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
     border: none !important;
     transition-property: unset;
     padding: 0px 15px;
