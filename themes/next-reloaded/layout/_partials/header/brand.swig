@@ -7,7 +7,7 @@
         </a>
       </div>
     {%- endif %}
-     
+
     <div>
       <a href="{{ config.root }}" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>

@@ -8,7 +8,14 @@ tags:
 - 爬虫
 ---
 
+
+
+> 爬虫小练习。看妹子 ( ͡° ͜ʖ ͡°)
+
+<!---more--->
+
 ### 主要步骤：
+
 1. 获取网页地址，找到图片地址所在标签
 
 2. 用beautifulsoup解析出图片实际地址以及图片标题
@@ -17,9 +24,8 @@ tags:
 
 4. 写入循环，在每页将图片写入到本地
 
-<!---more--->
+### 主要代码
 
-### 主要代码（其实一共没几行。。。）
 ```python3
 start_html = requests.get(baseUrl, headers= headers)
 content = start_html.content
@@ -27,8 +33,9 @@ content = start_html.content
 这里用.content是为了避免网页编码和python编码不同而导致中文乱码问题，各个网站的编码都不一样，有些事utf-8,有些事GBK，还有其他的。这里可以避免编码影响。
 
 按F12，检查图片地址所在标签，见下图
-![图片地址](http://oekt5d96o.bkt.clouddn.com/17-6-10/1006946.jpg)
+![图片地址](https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/blog-20170610-页码.png)
 右键->copy selecter，可以看到，图片所在标签为 
+
 ```
 div > div.ui-main > div:nth-child(9) > div.mala-text
 ```
@@ -48,8 +55,9 @@ imgs = img_url['src'] #图片地址
 name = titles.tet_text()
 ```
 最后，找到页码标签，
-![页码](http://oekt5d96o.bkt.clouddn.com/17-6-10/99476027.jpg)
+![页码](https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/blog-20170610-图片地址.png)
 可以看到末页标签是在page类下的最后一个，所以我们可以用
+
 ```python
 maxPages = soup.find('div',class_='page').find_all('a')[-1]['href']
 maxpage0 = re.findall('\d+',maxPages)

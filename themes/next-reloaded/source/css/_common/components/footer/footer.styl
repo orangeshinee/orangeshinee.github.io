@@ -36,7 +36,17 @@
   }
 }
 
+if (hexo-config('footer.icon.animated')) {
+  #animate {
+    animation: iconAnimate 1.33s ease-in-out infinite;
+  }
+}
 
+.with-love {
+  color: unquote(hexo-config('footer.icon.color'));
+  display: inline-block;
+  margin: 0 5px;
+}
 
 .powered-by, .theme-info {
   display: inline-block;
