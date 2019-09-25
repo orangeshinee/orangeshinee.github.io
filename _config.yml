@@ -104,3 +104,10 @@ deploy:
   repository:  https://github_token@github.com/orangeshinee/orangeshinee.github.io.git
   branch: master
   
+# leancloud
+leancloud_counter_security:
+  enable_sync: true
+  app_id: 1dB1DyLhCr7bbQfYzzQImDIE-MdYXbMMI
+  app_key: Tp6tjCNwKLFfUWrlIfQ5wHJK
+  username: shine
+  password: ishine
