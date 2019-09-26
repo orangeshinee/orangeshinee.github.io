@@ -15,7 +15,7 @@ share: Share
 fancybox: true
 
 #avatar 
-avatar: https://shinepics-1254247808.cos.ap-guangzhou.myqcloud.com/16-10-6/64457700.jpg
+avatar: https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/ishien-头像.png
 
 # Site
 title: 闲谈梦落花
@@ -137,8 +137,10 @@ neat_js:
     - '**/linkcard.js' 
     - '**/clicksocialvalue.js' 
 
-symbols_count_time:
-  symbols: true
-  time: true
-  total_symbols: true
-  total_time: true
+
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000

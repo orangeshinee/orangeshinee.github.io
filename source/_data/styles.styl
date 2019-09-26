@@ -42,6 +42,7 @@ main {
 .header-inner {
   position: relative;
   display: block;
+  width: 100%;
 }
 
 
@@ -396,9 +397,7 @@ p#div-border-bottom-purple {
 }
 
 // 顶栏宽度
-.container .header-inner {
-    width: 100%;
-}
+
 .container {
 	display: flex;
 	min-height: 100vh;
@@ -652,8 +651,9 @@ pre .deletion {
 .posts-collapse .collection-title h1, .posts-collapse .collection-title h2 {
     margin-left: 0;
 }
-.posts-collapse .collection-title {
+.posts-collapse .collection-title::before {
     margin: 10px 0 30px 0;
+    content: none;
 }
 //时间轴年份圆点
 .posts-collapse .collection-year::before {
@@ -708,6 +708,17 @@ pre .deletion {
     
 }
 @media (max-width: 767px) {
+    .header-inner {
+        padding-left: 0;
+        padding-bottom: 0px;
+        padding-right: 0;
+        padding-top: 0px;
+    }
+
+    .container .main-inner {
+        margin-top: 30px;
+    }
+
 	.posts-collapse {
 	    .post-title a {
 		    font-size: 1em;
@@ -774,6 +785,7 @@ pre .deletion {
 .site-nav-toggle {
     top: 35px;
     left: 10px;
+    position: absolute;
 }
 .btn-bar {
     background-color: rgb(255, 255, 255);
@@ -790,6 +802,7 @@ pre .deletion {
         border-bottom: none;
         position: relative;
         z-index: 1024;
+        transform: none;
     }
 }
 // 移动端顶部
@@ -802,15 +815,16 @@ pre .deletion {
         letter-spacing: 0px !important;
         padding-bottom: 0px !important;
     }
-    .site-meta {
-        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    }
+
     .menu .menu-item {
         margin: 0px 10px !important;
     }
 }
 
+.site-brand-container {
+    position: relative;
 
+}
 
 
 .symbolic-animals {
@@ -1067,3 +1081,124 @@ ol{
 .icon-rabbit:before { content: '\e826'; }
 .icon-monkey:before { content: '\e829'; }
 .icon-rooster:before { content: '\e82f'; }
+
+
+// 移动端样式
+@media (max-width: 1023px) {
+    .sidebar {
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    
+}
+@media (max-width: 767px) {
+	.posts-collapse {
+	    .post-title a {
+		    font-size: 1em;
+		}
+		.post-meta {
+		    font-size: 0.875em;
+		}
+		.post {
+			padding: 0 !important;
+		}
+		padding: 2em 15px 1em 15px;
+		margin: 70px 0 70px 0;
+	}
+	.post-block.page {
+        padding: 32px 15px 32px 15px !important;
+    }
+	.post-body h2, h3, h4, h5, h6 {
+        margin-left: -15px;
+		padding-left: 15px;
+    }
+    .posts-expand {
+        margin: 0px;
+        padding-top: 70px;
+    }
+    .posts-expand .post-title {
+        font-size: 22px;
+    }
+    .posts-expand .post-meta {
+        font-size: 12px;
+    }
+    .post {
+        margin-bottom: 55px !important;
+        padding: 32px 15px 32px 15px !important;
+    }
+    .posts-expand .post-tags {
+        margin-top: 10px;
+    }
+    .post-widgets {
+        margin-top: 10px;
+    }
+    .comments {
+        //margin: 40px 0px 40px 0px !important;
+    }
+	.pagination {
+        margin-bottom: 15px;
+		margin-top: -30px;
+    }
+    .footer {
+        box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+.sidebar-active #sidebar-dimmer {
+    opacity: 0;
+}
+// 移动端侧栏动态
+@media (max-width: 767px){
+    .sidebar-active + #sidebar-dimmer {
+        opacity: 0;
+    }
+}
+
+// 移动端左上角菜单按钮
+.site-nav-toggle {
+    top: 35px;
+    left: 10px;
+}
+.btn-bar {
+    background-color: rgb(255, 255, 255);
+}
+@media (max-width: 767px) {
+    .menu {
+        text-align: center;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+    .site-nav {
+        top: initial;
+        background-color: rgba(255, 255, 255, 0.75);
+        border-top: none;
+        border-bottom: none;
+        position: relative;
+        z-index: 1024;
+    }
+}
+// 移动端顶部
+@media (max-width: 767px) {
+    .site-title {
+        font-size: 35px !important;
+        letter-spacing: 0px !important;
+        padding-top: 20px;
+    }
+    .site-subtitle{
+        letter-spacing: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .menu .menu-item {
+        margin: 0px 10px !important;
+    }
+
+    .header {
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+}
+
+@media (min-width: 1600px){
+.container .header-inner {
+    width: 100%;
+}
+}

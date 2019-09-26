@@ -64,7 +64,7 @@ footer:
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright: 
+  copyright: true
 
   powered:
     # Hexo link (Powered by Hexo).
@@ -226,7 +226,7 @@ avatar:
   # In theme directory (source/images): /images/avatar.gif
   # In site directory (source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: https://i.loli.net/2019/09/23/KIi1NGLJWzlRvCo.jpg
+  url: https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/ishien-头像.png
   # If true, the avatar would be dispalyed in circle.
   rounded: true
   # If true, the avatar would be rotated with the cursor.
@@ -310,17 +310,18 @@ post_meta:
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
   separated_meta: true
-  item_text_post: true
-  item_text_total: true
-  awl: 4
+  item_text_post: false
+  item_text_total: false
+  awl: 2
   wpm: 275
+  suffix: mins
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: false
+tag_icon: true
 
 # Wechat Subscriber
 wechat_subscriber:
-  enable: true
+  enable: false
   qcode: https://i.loli.net/2019/09/23/cID4ekQ3xZRhfLi.png
   description: 无聊想起来的时候才会更新的无聊的公众号o(*￣▽￣*)o
 
@@ -809,7 +810,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/wzpan/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
