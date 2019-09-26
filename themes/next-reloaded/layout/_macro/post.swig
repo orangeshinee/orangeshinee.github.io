@@ -226,6 +226,9 @@
     {### END POST BODY ###}
     {#####################}
 
+
+
+
     {%- if theme.related_posts.enable and (theme.related_posts.display_in_home or not is_index) %}
       {% include '../_partials/post/post-related.swig' with { post: post } %}
     {%- endif %}
@@ -255,7 +258,7 @@
           {%- if theme.tag_icon %}
             {%- set tag_indicate = '<i class="fa fa-tag"></i>' %}
           {% else %}
-            {%- set tag_indicate = '#' %}
+            {%- set tag_indicate = '<i class="fa fa-tag"></i>' %}
           {%- endif %}
           <div class="post-tags">
             {%- for tag in post.tags %}

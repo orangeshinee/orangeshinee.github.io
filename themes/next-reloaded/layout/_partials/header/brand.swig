@@ -11,7 +11,7 @@
     <div>
       <a href="{{ config.root }}" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">{{ title }}</span>
+        <span class="site-title"><img src="https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/闲谈梦落花.png"></span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>

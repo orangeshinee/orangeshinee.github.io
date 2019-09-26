@@ -2,6 +2,7 @@
 title: 改进的Python贴吧爬虫代码 
 date: 2016-9-26 10:00:47
 updated: 2017-4-26 10:40:47
+copyright: true
 categories:
 - 代码
 tags:

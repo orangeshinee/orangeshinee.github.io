@@ -75,5 +75,8 @@
   {%- if theme.pjax %}
     </div>
   {%- endif %}
+
+
+</div>
 </body>
 </html>

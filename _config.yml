@@ -23,7 +23,7 @@ subtitle: 长路漫漫离家，伴君不负韶华。
 description: 长路漫漫离家，伴君不负韶华。
 author: shineee
 language: zh-CN
-timezone: 
+timezone: Asia/Shanghai
 
 
 # Miscellaneous
@@ -37,13 +37,13 @@ favicon: /favicon.ico
 music: 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.shineee.win/
+url: https://blog.shineee.win/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 #网易跟帖
-wangYi: eac70afbf5d442379579eb655a08a171
+wangYi: 
 
 
 # Directory
@@ -104,3 +104,41 @@ deploy:
   repository:  https://github_token@github.com/orangeshinee/orangeshinee.github.io.git
   branch: master
 
+
+# 豆瓣评书
+douban:
+  user: shine-smile
+  builtin: false
+  book:
+    title: '&nbsp;'
+    quote: '天道酬勤'
+  timeout: 10000
+
+  # hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  exclude:
+    - '**/*.min.js' 
+    - '**/cliclove.js'
+    - '**/image.js' 
+    - '**/valine.js' 
+    - '**/linkcard.js' 
+    - '**/clicksocialvalue.js' 
+
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true

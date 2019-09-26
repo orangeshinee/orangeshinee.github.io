@@ -64,7 +64,7 @@ footer:
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright:
+  copyright: 
 
   powered:
     # Hexo link (Powered by Hexo).
@@ -99,6 +99,7 @@ creative_commons:
   sidebar: false
   post: false
   language: deed.zh
+
 
 
 # ---------------------------------------------------------------
@@ -196,7 +197,6 @@ site_state: true
 social:
   GitHub: https://github.com/orangeshinee || github
   E-Mail: mailto:shineeee.zhang@gmail.com || envelope
-  Weibo: https://weibo.com/an2ning || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -311,7 +311,7 @@ post_meta:
 symbols_count_time:
   separated_meta: true
   item_text_post: true
-  item_text_total: false
+  item_text_total: true
   awl: 4
   wpm: 275
 

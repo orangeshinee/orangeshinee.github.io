@@ -7,13 +7,17 @@
   {%- if year !== current_year %}
     {%- set current_year = year %}
     <div class="collection-year">
-      <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="collection-header">{{ current_year }}</{%- if theme.seo %}h2{% else %}h1{%- endif %}>
+        <{% if theme.seo %}h2{% else %}h1{% endif %} class="archive-year" id="archive-year-{{ year }}">
+           {{ year }}
+           <div class="chinese-zodiac">
+               {% include 'chinese-zodiac.swig' %}
+           </div>
+       </{% if theme.seo %}h2{% else %}h1{% endif %}>
     </div>
   {%- endif %}
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-
       <{%- if theme.seo %}h3{% else %}h2{%- endif %} class="post-title">
         {%- if post.link %}{# Link posts #}
           {%- set postTitleIcon = '<i class="fa fa-external-link"></i>' %}
