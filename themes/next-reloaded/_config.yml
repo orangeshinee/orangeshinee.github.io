@@ -163,6 +163,8 @@ menu:
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
+  movies: /movies/ || film
+  books: /books/ || book
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -313,7 +315,7 @@ symbols_count_time:
   item_text_post: false
   item_text_total: false
   awl: 2
-  wpm: 275
+  wpm: 200
   suffix: mins
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
@@ -355,7 +357,7 @@ related_posts:
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: false
-  url: https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name # Link for view source
+  #url: https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name # Link for view source
   #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name # Link for fork & edit
 
 

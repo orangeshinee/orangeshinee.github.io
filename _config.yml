@@ -110,11 +110,14 @@ douban:
   user: shine-smile
   builtin: false
   book:
-    title: '&nbsp;'
+    title: '书山有路'
     quote: '天道酬勤'
+  movie:
+    title: '光影流年'
+    quote: 'Youth is wasted on the young.'
   timeout: 10000
 
-  # hexo-neat
+# hexo-neat
 # 博文压缩
 neat_enable: true
 # 压缩html
@@ -137,10 +140,16 @@ neat_js:
     - '**/linkcard.js' 
     - '**/clicksocialvalue.js' 
 
-
-
 search:
   path: search.xml
   field: post
   format: html
   limit: 10000
+
+# symbols_count_time:
+#   symbols: true
+#   time: true
+#   total_symbols: true
+#   total_time: true
+#   exclude_codeblock: true
+
