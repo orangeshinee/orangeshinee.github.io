@@ -165,6 +165,7 @@ menu:
   #commonweal: /404/ || heartbeat
   movies: /movies/ || film
   books: /books/ || book
+  gallery: /gallery/ || photos
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
