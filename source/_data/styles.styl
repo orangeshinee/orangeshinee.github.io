@@ -1201,11 +1201,13 @@ ol{
 	flex-wrap: nowrap;
 	align-items: flex-start;
 }
-.img-column {
+.img-row {
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.img-column a,
+.img-row a,
 .gallery-column a {
 	border-bottom: 0px;
 }
@@ -1228,9 +1230,32 @@ ol{
 	width: 300px;
 	object-fit: cover;
 }
+.posts-expand .post-body img {
+    max-width: 180px;
+}
 @media (max-width: 767px){
 	.gallery-item p {
 		min-width: 75px;
 		font-size: 13px;
 	}
+    .posts-expand .post-body img {
+    max-width: 150px;
+
 }
+}
+
+// ali图标
+.fa-custom {
+  font-family:"iconfont" ;
+  font-size:inherit;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon {
+       width: 20px; height: 20px;
+       vertical-align: -4.5px;
+       fill: currentColor;
+       overflow: hidden;
+    }

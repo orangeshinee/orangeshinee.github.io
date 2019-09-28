@@ -24,14 +24,14 @@ minify: false
 custom_file_path:
   head: source/_data/head.swig
   #header: source/_data/header.swig
-  sidebar: source/_data/sidebar.swig
+  #sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
   postBodyEnd: source/_data/post-body-end.swig
   #footer: source/_data/footer.swig
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  style: source/_data/styles.styl
+  style: source/_data/styles2.styl
 
 
 # ---------------------------------------------------------------
@@ -64,7 +64,7 @@ footer:
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
   # If not defined, `author` from Hexo `_config.yml` will be used.
-  copyright: true
+  copyright: 
 
   powered:
     # Hexo link (Powered by Hexo).
@@ -165,7 +165,7 @@ menu:
   #commonweal: /404/ || heartbeat
   movies: /movies/ || film
   books: /books/ || book
-  gallery: /gallery/ || photos
+  gallery: /gallery/ || icon-ins1
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -179,8 +179,8 @@ menu_settings:
 
 # Schemes
 #scheme: Muse
-scheme: Mist
-#scheme: Pisces
+#scheme: Mist
+scheme: Pisces
 #scheme: Gemini
 
 
@@ -206,7 +206,7 @@ social:
   #VK Group: https://vk.com/yourname || vk
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
   #YouTube: https://youtube.com/yourname || youtube
-  Instagram: https://instagram.com/shinelovesmile || instagram
+  Instagram: https://instagram.com/shinelovesmile || custom icon-ins1
   #Skype: skype:yourname?call|chat || skype
 
 social_icons:
@@ -249,8 +249,8 @@ toc:
 
 sidebar:
   # Sidebar Position.
-  # position: left
-  position: right
+  position: left
+  # position: right
 
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
@@ -1012,8 +1012,8 @@ vendors:
   # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
   # fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
   jquery: #//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js
-  fancybox: #//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js
-  fancybox_css: #//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css
+  fancybox: //cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js
+  fancybox_css: //cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css
 
   # Medium-zoom
   # Example:

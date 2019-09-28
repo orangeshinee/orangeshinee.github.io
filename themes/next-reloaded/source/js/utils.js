@@ -20,10 +20,12 @@ NexT.utils = {
    * Wrap images with fancybox.
    */
   wrapImageWithFancyBox: function() {
-    document.querySelectorAll('.post-body :not(a) > img, .post-body > img').forEach(element => {
+    document.querySelectorAll('.post-body :not(a) > img, .post-body > img, .gallery-page > img').forEach(element => {
       var $image = $(element);
       var imageLink = $image.attr('data-src') || $image.attr('src');
       var $imageWrapLink = $image.wrap(`<a class="fancybox fancybox.image" href="${imageLink}" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`).parent('a');
+      // 将缩略图src换成原图src
+      var $imageGalleryLink = $image.wrap(`<a class="fancybox fancybox.image" href="${imageLink.replace(".th.",".")}" itemscope itemtype="http://schema.org/ImageObject" itemprop="url"></a>`).parent('a');
       if ($image.is('.post-gallery img')) {
         $imageWrapLink.addClass('post-gallery-img');
         $imageWrapLink.attr('data-fancybox', 'gallery').attr('rel', 'gallery');
@@ -31,6 +33,12 @@ NexT.utils = {
         $imageWrapLink.attr('data-fancybox', 'group').attr('rel', 'group');
       } else {
         $imageWrapLink.attr('data-fancybox', 'default').attr('rel', 'default');
+      }
+
+      // 如果是相册页面下的图片 启用fancybox
+      if ($image.is('.img-row img')){
+        $imageGalleryLink.addClass('post-gallery-img');
+        $imageGalleryLink.attr('data-fancybox', 'gallery').attr('rel', 'gallery');
       }
 
       var imageTitle = $image.attr('title') || $image.attr('alt');
