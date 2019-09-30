@@ -1,13 +1,14 @@
 ---
-title: 改进的Python贴吧爬虫代码 
-date: 2016-9-26 10:00:47
-updated: 2017-4-26 10:40:47
+title: "改进的Python贴吧爬虫代码\_"
 copyright: true
 categories:
-- 代码
+  - 代码
 tags:
-- Python
-- 爬虫
+  - Python
+  - 爬虫
+abbrlink: 24308
+date: 2016-09-26 10:00:47
+updated: 2017-04-26 10:40:47
 ---
 
 之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。

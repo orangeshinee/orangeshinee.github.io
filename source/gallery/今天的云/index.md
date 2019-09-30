@@ -3,23 +3,12 @@ title: -今天的云-
 date: 2018-10-25 10:20:09
 comments: false
 ---
-<center>抬头，看今天的云</center>
+<center>抬头看</center>
 <center>
 	.+†+.</center>
 <div class="gallery-page">
 	<div class="img-list">
-		<div class="img-row">
-			<img src="https://s2.ax1x.com/2019/09/27/uME9Dx.th.jpg" alt="uME9Dx.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMEpK1.th.jpg" alt="uMEpK1.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAzvR.th.jpg" alt="uMAzvR.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAx29.th.jpg" alt="uMAx29.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAv8J.th.jpg" alt="uMAv8J.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAjC4.th.jpg" alt="uMAjC4.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAO5F.th.jpg" alt="uMAO5F.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMALUU.th.jpg" alt="uMALUU.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAqET.th.jpg" alt="uMAqET.th.jpg">
-			<img src="https://s2.ax1x.com/2019/09/27/uMAHbV.th.jpg" alt="uMAHbV.th.jpg">
-		</div>
-	</div>
-</div>
+		<div class="img-row"><img src="http://pic.sikie.wang/images/2019/09/29/190609.th.jpg" alt="190609.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190711.th.jpg" alt="190711.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190714.th.jpg" alt="190714.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190719.th.jpg" alt="190719.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190727.th.jpg" alt="190727.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190729.th.jpg" alt="190729.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190801.th.jpg" alt="190801.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190802.th.jpg" alt="190802.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190803.th.jpg" alt="190803.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190808.th.jpg" alt="190808.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/190907.th.jpg" alt="190907.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190811_081954.th.jpg" alt="20190811.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190817_165236.th.jpg" alt="20190817.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190817_165320.th.jpg" alt="20190817_2.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190820_183258-01.th.jpg" alt="20190820.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190826_081347.th.jpg" alt="20190826.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190826_181851.th.jpg" alt="20190826.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190831_082853.th.jpg" alt="20190831.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190907_124853.th.jpg" alt="20190907.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190910_175110.th.jpg" alt="20190910.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190919_080430.th.jpg" alt="20190919.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/20190924_080629.th.jpg" alt="20190924.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190714_194121_633.th.jpg" alt="20190714.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190812_075952_237.th.jpg" alt="20190812.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190817_071316_052.th.jpg" alt="20190817.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190817_190505_004.th.jpg" alt="20190817.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190826_121658_660.th.jpg" alt="20190826.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190919_142325_863.th.jpg" alt="20190919.jpg"><img src="http://pic.sikie.wang/images/2019/09/29/IMG_20190929_175915.th.jpg" alt="20190929.jpg"></div></div></div>
 <center>.+ﾟ♪ﾟ+.ｏ.+ﾟ♪ﾟ+.ｏ.+ﾟ♪ﾟ+.ｏ.+ﾟ♪ﾟ+.ｏ.+ﾟ♪ﾟ+.ｏ.+ﾟ♪ﾟ+.</center>
+
+

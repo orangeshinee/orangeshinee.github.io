@@ -155,17 +155,17 @@ baidu_push: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  home: / || home
+  home: / || icon-fuchouzhelianmeng-meiguoduichang
   #about: /about/ || user
-  tags: /tags/ || tags
-  categories: /categories/ || th
-  archives: /archives/ || archive
+  tags: /tags/ || icon-fuchouzhelianmeng-heiguafu
+  categories: /categories/ || icon-yinhehuweidui-gelute
+  archives: /archives/ || icon-fuchouzhelianmeng-yiren
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
-  movies: /movies/ || film
-  books: /books/ || book
-  gallery: /gallery/ || icon-ins1
+  #movies: /movies/ || icon-luoji
+  books: /books/ || icon-feihongnvwu
+  gallery: /gallery/ || icon-fuchouzhelianmeng-yingyan
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
@@ -198,15 +198,16 @@ site_state: true
 # Value before `||` delimiter is the target permalink.
 # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/orangeshinee || github
-  E-Mail: mailto:shineeee.zhang@gmail.com || envelope
+  GitHub: https://github.com/orangeshinee || icon-github-footer
+  E-Mail: mailto:shineeee.zhang@gmail.com || icon--contactemailgmailinboxmailsendsend
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
   #VK Group: https://vk.com/yourname || vk
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
   #YouTube: https://youtube.com/yourname || youtube
-  Instagram: https://instagram.com/shinelovesmile || custom icon-ins1
+  Instagram: https://instagram.com/shinelovesmile || icon-ins1
+  shinePics: https://pic.sikie.wang || icon-picture1
   #Skype: skype:yourname?call|chat || skype
 
 social_icons:
@@ -313,8 +314,8 @@ post_meta:
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
   separated_meta: true
-  item_text_post: false
-  item_text_total: false
+  item_text_post: true
+  item_text_total: true
   awl: 2
   wpm: 200
   suffix: mins

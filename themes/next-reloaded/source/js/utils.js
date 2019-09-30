@@ -41,11 +41,17 @@ NexT.utils = {
         $imageGalleryLink.attr('data-fancybox', 'gallery').attr('rel', 'gallery');
       }
 
+      //给图片下方写上标题，标题来自alt
       var imageTitle = $image.attr('title') || $image.attr('alt');
       if (imageTitle) {
+        if ($image.is('.img-row img')){
+          // 相册中的不给名字 － －
+        }
+        else{
         $imageWrapLink.append(`<p class="image-caption">${imageTitle}</p>`);
         // Make sure img title tag will show correctly in fancybox
         $imageWrapLink.attr('title', imageTitle).attr('data-caption', imageTitle);
+        }
       }
     });
 

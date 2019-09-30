@@ -19,7 +19,7 @@ avatar: https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/ishien-头像.pn
 
 # Site
 title: 闲谈梦落花
-subtitle: 长路漫漫离家，伴君不负韶华。
+subtitle: 
 description: 长路漫漫离家，伴君不负韶华。
 author: shineee
 language: zh-CN
@@ -146,10 +146,10 @@ search:
   format: html
   limit: 10000
 
-# symbols_count_time:
-#   symbols: true
-#   time: true
-#   total_symbols: true
-#   total_time: true
-#   exclude_codeblock: true
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: false
+  exclude_codeblock: true
 

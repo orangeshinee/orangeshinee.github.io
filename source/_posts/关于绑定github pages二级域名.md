@@ -1,12 +1,13 @@
 ---
 title: 关于绑定github pages二级域名
-date: 2016-10-10 10:00:47
-updated: 2017-4-26 15:50:47
 categories:
-- 代码
-tags: 
-- Github 
-- Hexo
+  - 代码
+tags:
+  - Github
+  - Hexo
+abbrlink: 17483
+date: 2016-10-10 10:00:47
+updated: 2017-04-26 15:50:47
 ---
 
 
