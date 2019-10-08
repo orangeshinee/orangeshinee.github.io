@@ -6,9 +6,9 @@ tags:
   - Next
   - Hexo
   - HTML/CSS
+abbrlink: 33967
 date: 2018-09-15 13:00:47
-updated: 2019-9-26 15:50:47
-
+updated: 2019-09-26 15:50:47
 ---
 
 Next一直是Hexo最热门的主题,本站采用了Next的Pisces主题,然后根据其他大佬的美化教程进行适当修改,记录一下.

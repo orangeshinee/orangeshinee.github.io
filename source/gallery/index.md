@@ -14,8 +14,8 @@ commetns: false
 			<p>- 今天的云 -</p>
 			</div>
 			<div class="gallery-item">
-				<a href="sample"><img src="img/sample.jpg"></a>
-			<p>- HIMYM -</p>
+				<a href="行东京"><img src="https://pic.sikie.wang/images/2019/10/08/IMG_0591.md.jpg"></a>
+			<p>- 行东京 -</p>
 			</div>
 		</div>
 	</div>

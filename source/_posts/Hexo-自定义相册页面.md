@@ -6,8 +6,9 @@ tags:
   - Next
   - Hexo
   - HTML/CSS
-date: 2018-09-16 13:00:47
-updated: 2019-9-26 15:50:47
+abbrlink: 33383
+date: 2018-12-16 13:00:47
+updated: 2019-09-29 15:50:47
 ---
 
 不想拥有相册的blog不是好网站（
@@ -82,7 +83,36 @@ wrapImageWithFancyBox: function() {
 缩略图: xxx.th.jpg
 ```
 
-所以,只要在相册内容页面的图片地址填入缩略图,然后utils.js中会将`th.`去掉,变成原图地址,这样点开之后就是原图了.
+所以,只要在相册内容页面的图片地址填入缩略图,然后utils.js中会将`th.`去掉,变成原图地址,这样点开之后就是原图了.写了一个简单的java来做这件事
+```java
+public class TransUrl {
+	public static void main(String[] args) throws IOException {
+		FileInputStream fis = new FileInputStream("url.txt");
+		BufferedReader bis = new BufferedReader(new InputStreamReader(fis));
+
+		List<String> strings = transUrl(bis);
+		for (String str : strings) {
+			System.out.print(str);
+		}
+	}
+
+	private static List<String> transUrl(BufferedReader bis) throws IOException {
+		String line = null;
+		List<String> pics = new ArrayList<>();
+		while ((line = bis.readLine()) != null) {
+			String pattern = "<img.*?>";
+			Pattern compile = Pattern.compile("<img.*?>");
+			Matcher matcher = compile.matcher(line);
+			while (matcher.find()) {
+				String img = matcher.group();
+				pics.add(img);
+			}
+		}
+		return pics;
+	}
+}
+```
+
 
 [路过图床](https://imgchr.com/)也可以提供这种多格式链接,同时免费注册用户可以无限传图,对于小用户来说很棒啦,完全够用.
 
