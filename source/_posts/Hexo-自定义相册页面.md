@@ -6,9 +6,8 @@ tags:
   - Next
   - Hexo
   - HTML/CSS
-abbrlink: 33383
 date: 2018-09-16 13:00:47
-updated: 2019-09-26 15:50:47
+updated: 2019-9-26 15:50:47
 ---
 
 不想拥有相册的blog不是好网站（
