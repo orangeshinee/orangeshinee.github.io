@@ -1,0 +1,325 @@
+// Custom styles.
+
+//页面背景
+body {
+	//background: #f5f7f9;
+    background-image: linear-gradient(to left , #fff1eb 0%, #ace0f9 100%);
+    
+}
+
+
+
+//首页文章样式
+.post  {
+     padding: 2em 30px;
+}
+
+a:hover {
+  color: #f9a972;
+  border-bottom-color: #f9a972;
+}
+
+
+
+.post-body {
+    font-size: 1em;
+    }
+
+
+//头像旋转
+.ds-top-threads li a:hover {
+    border-left: 8px solid #4d768c;
+}
+
+// 头部
+.menu .menu-item a:hover,
+.menu-item-active a {
+  border-bottom-color: #f9a972;
+}
+.sidebar a:hover,
+.sidebar .exturl:hover {
+  color: #f9a972;
+}
+.sidebar-nav li:hover {
+  color: #fc6423;
+}
+.sidebar-nav .sidebar-nav-active:hover {
+  color: #fc6423;
+}
+.menu .menu-item a:hover,
+.menu-item-active a {
+  background: #f9f9f9;
+  border-bottom-color: #fff;
+}
+.site-meta:hover {
+  background: rgba(0,0,0,0.9);
+  border-radius: 0 0 70px 70px;
+  box-shadow: 0 8px 20px -3px rgba(0,0,0,0.6);
+}
+.site-meta {
+    background: rgba(0,0,0,0.8);
+    border-radius: 0 0 0 0;
+    box-shadow: 0 2px 15px 0 rgba(0,0,0,0.6);
+    transition: all 0.2s linear;
+}
+.menu .menu-item a:hover, .menu-item-active a {
+  background: rgba(255,255,255,0.5);
+  border-radius: 50px 0 0 50px;
+  border-color: transparent;
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+  font-size: 15px;
+}
+.menu-item-active a:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  margin-top: -3px;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f9a972;
+}
+// 首页文章标题 下划线颜色
+.posts-expand .post-title-link::before {
+    background-color: #f9a972;
+}
+
+//阿里图标
+.icon {
+       width: 20px; height: 20px;
+       vertical-align: -4.5px;
+       fill: currentColor;
+       overflow: hidden;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+.links-of-author-item .icon{
+  margin-left: 0;
+  margin-right: 10px;
+  }
+.links-of-author-item {
+  text-align: left ;
+  }
+
+//主页面调整
+.header-inner {
+    background: rgba(255,255,255,0.75);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+}
+
+.sidebar {   
+    background: transparent;
+}
+
+.sidebar-inner {
+    background: rgba(255,255,255,0.75);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+}
+
+.header {
+    width: 960px
+}
+
+.container .main-inner {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.site-title img {
+    max-width: 80%;
+    }
+
+.content-wrap {
+    background: rgba(255,255,255,0.9);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 8px 20px -8px rgba(0,0,0,0.3);
+    margin-bottom: 50px;
+    min-height: 800px;
+}
+
+
+// 移动端主页
+@media (max-width: 991px){
+.container .main-inner {
+    width: 100%;
+}
+
+.site-title img {
+    max-width: 60%;
+    }
+
+.header-inner {
+    left: 0;
+}
+.header {
+    width: 100%;
+}
+}
+
+@media (max-width: 767px){
+.header {
+    width: 100%;
+}
+}
+
+
+// 侧栏 aside
+.links-of-author {
+  justify-content: end;
+}
+
+
+
+// 十二生肖 - 标签
+.chinese-zodiac {
+    float: right;
+}
+@font-face {
+  font-family: 'chinese-zodiac';
+  font-display: swap;
+  src: url('/fonts/chinese-zodiac.eot');
+  src: url('/fonts/chinese-zodiac.eot') format('embedded-opentype'),
+       url('/fonts/chinese-zodiac.woff2') format('woff2'),
+       url('/fonts/chinese-zodiac.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.symbolic-animals {
+  display: inline-block;
+  font: normal normal normal 14px/1 chinese-zodiac;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-dragon:before { content: '\e806'; }
+.icon-tiger:before { content: '\e809'; }
+.icon-pig:before { content: '\e810'; }
+.icon-horse:before { content: '\e813'; }
+.icon-rat:before { content: '\e816'; }
+.icon-goat:before { content: '\e818'; }
+.icon-snake:before { content: '\e820'; }
+.icon-ox:before { content: '\e822'; }
+.icon-dog:before { content: '\e825'; }
+.icon-rabbit:before { content: '\e826'; }
+.icon-monkey:before { content: '\e829'; }
+.icon-rooster:before { content: '\e82f'; }
+
+
+//时间轴第一个圆点
+.page-archive .posts-collapse .archive-move-on{
+    opacity: 0;
+}
+//时间轴年份
+.posts-collapse .collection-title h1, .posts-collapse .collection-title h2 {
+    margin-left: 0;
+}
+.posts-collapse .collection-title::before {
+    margin: 10px 0 30px 0;
+    content: none;
+}
+//时间轴年份圆点
+.posts-collapse .collection-year::before {
+    content: none;
+    }
+
+//时间轴写作时间
+.posts-collapse .post-meta {
+    font-size: 1.125em;
+	left: unset;
+    right: 0px;
+    position: absolute;
+    top: 0px;
+}
+//时间轴色带
+.posts-collapse::after{
+    content: none;
+}
+// 时间轴文章标题左边圆点颜色
+.posts-collapse .post-header:hover::before {
+    background-color: rgb(161, 102, 171);
+}
+// 时间轴文章标题
+.posts-collapse .post-title a {
+    color: rgb(80, 115, 184);
+	font-size: 1.2em;
+	position: relative;
+    left: -30px;
+}
+.posts-collapse .post-title a:hover {
+    color: rgb(161, 102, 171);
+}
+// 时间轴文章标题底部虚线
+.posts-collapse .post-header:hover {
+    border-bottom-color: rgb(161, 102, 171);
+}
+
+/*gallery*/
+
+.gallery-page {
+	margin-top: -50px;
+}
+.gallery-column,
+.img-row {
+	display: flex;
+	flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.img-row a,
+.gallery-column a {
+	border-bottom: 0px;
+}
+.gallery-item {
+	margin-bottom: -50px
+}
+.gallery-item p {
+	margin: -25px auto -10px;
+	max-width: 50%;
+	text-align: center;
+	font-size: 15px;
+	color: $black-deep;
+	background: rgba(255,255,255,.3);
+	border-radius: 7px;
+	border: 1px solid $black-deep;
+	box-shadow: 0 8px 20px -8px rgba(0,0,0,.3);
+}
+.posts-expand .post-body .gallery-column a img {
+	height: 250px;
+	width: 300px;
+	object-fit: cover;
+}
+.posts-expand .post-body img {
+    max-width: 180px;
+}
+@media (max-width: 767px){
+	.gallery-item p {
+		min-width: 75px;
+		font-size: 13px;
+	}
+    .posts-expand .post-body img {
+    max-width: 150px;
+
+}
+}
+
+// footer置底
+.footer {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  min-height: 45px;
+  }
+.main {
+  padding-bottom: 100px;
+  }
+
+// douban
+
+.hexo-douban-picture img {
+    width: 100%;
+    }
