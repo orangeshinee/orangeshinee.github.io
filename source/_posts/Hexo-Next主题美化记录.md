@@ -6,7 +6,7 @@ tags:
   - Next
   - Hexo
   - HTML/CSS
-abbrlink: 33967
+abbrlink: hexo-next-customization
 date: 2018-09-15 13:00:47
 updated: 2019-09-26 15:50:47
 ---
@@ -119,6 +119,9 @@ Pisces主题的页面比较大,稍微小一点比较有紧凑感,更改了页面
 
 侧栏中社交链接图标也是如此
 
+### 归档页面显示十二生肖
+参考大佬的[配置](guanqr.com/tech/website/hexo-theme-next-customization/)，然后在自己修改一下css就ok。
+
 
 
 ### 其他细节
@@ -137,7 +140,7 @@ Pisces主题的页面比较大,稍微小一点比较有紧凑感,更改了页面
 
 [@神代綺凜](https://moe.best/cross.html) 这个博客是基于Typecho的，但是很多东西还是可以借鉴的嘛～
 
-[https://www.guanqr.com](https://www.guanqr.com/)
+[荷戟独彷徨](https://www.guanqr.com/)  但是大佬已经转成[Hugo](https://github.com/gohugoio/hugo)了 - -
 
 
 

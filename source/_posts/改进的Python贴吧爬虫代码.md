@@ -1,12 +1,12 @@
 ---
-title: "改进的Python贴吧爬虫代码\_"
+title: "改进的Python贴吧爬虫代码"
 copyright: true
 categories:
   - 代码
 tags:
   - Python
   - 爬虫
-abbrlink: 24308
+abbrlink: python-spiders-improved
 date: 2016-09-26 10:00:47
 updated: 2017-04-26 10:40:47
 ---

@@ -5,7 +5,7 @@ categories:
 tags:
   - Github
   - Hexo
-abbrlink: 17483
+abbrlink: github-pages-secend-name
 date: 2016-10-10 10:00:47
 updated: 2017-04-26 15:50:47
 ---

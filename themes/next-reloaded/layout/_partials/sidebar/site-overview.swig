@@ -90,7 +90,7 @@
         {%- set sidebarText = name %}
       {%- endif %}
       {%- if theme.social_icons.enable %}
-        {%- set sidebarIcon = '<svg class="icon aria-hidden="true"><use xlink:href="#' + link.split('||')[1] | trim | default('icon-zhizhuxia') + '"></use></svg>'  %}
+        {%- set sidebarIcon = '<svg class="icon" aria-hidden="true"><use xlink:href="#' + link.split('||')[1] | trim | default('icon-zhizhuxia') + '"></use></svg>'  %}
       {%- endif %}
         {{ next_url(sidebarURL, sidebarIcon + sidebarText, {title: name + ' &rarr; ' + sidebarURL}) }}
       </span>

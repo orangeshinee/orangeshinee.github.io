@@ -62,6 +62,11 @@ a:hover {
     box-shadow: 0 2px 15px 0 rgba(0,0,0,0.6);
     transition: all 0.2s linear;
 }
+.site-brand-container {
+    padding: 0 0;
+    background: none;
+    }
+
 .menu .menu-item a:hover, .menu-item-active a {
   background: rgba(255,255,255,0.5);
   border-radius: 50px 0 0 50px;
@@ -176,6 +181,7 @@ a:hover {
 // 十二生肖 - 标签
 .chinese-zodiac {
     float: right;
+    margin-right: 10px;
 }
 @font-face {
   font-family: 'chinese-zodiac';
@@ -226,6 +232,11 @@ a:hover {
     content: none;
     }
 
+// 年份字体大小
+.collection-year .archive-year {
+    font-size: 1.75em;
+    }
+
 //时间轴写作时间
 .posts-collapse .post-meta {
     font-size: 1.125em;
@@ -235,7 +246,7 @@ a:hover {
     top: 0px;
 }
 //时间轴色带
-.posts-collapse::after{
+.posts-collapse::before{
     content: none;
 }
 // 时间轴文章标题左边圆点颜色
@@ -247,8 +258,13 @@ a:hover {
     color: rgb(80, 115, 184);
 	font-size: 1.2em;
 	position: relative;
-    left: -30px;
+    left: 0px;
 }
+
+.posts-collapse .post-title {
+    margin-left: 1.75em;
+    }
+
 .posts-collapse .post-title a:hover {
     color: rgb(161, 102, 171);
 }

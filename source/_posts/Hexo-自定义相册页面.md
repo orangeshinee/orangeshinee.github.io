@@ -6,7 +6,7 @@ tags:
   - Next
   - Hexo
   - HTML/CSS
-abbrlink: 33383
+abbrlink: custom-album
 date: 2018-12-16 13:00:47
 updated: 2019-09-29 15:50:47
 ---

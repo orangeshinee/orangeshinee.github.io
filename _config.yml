@@ -39,9 +39,13 @@ music:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://blog.shineee.win/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :category/:abbrlink/
 permalink_defaults:
 
+#abbrlink配置
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: dec    # 进制：dec(default) and hex
 #网易跟帖
 wangYi: 
 
@@ -95,7 +99,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next-reloaded
+theme: hexo-theme-next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
