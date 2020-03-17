@@ -1,14 +1,13 @@
 ---
 title: Hexo网站主题美化记录
 categories:
-  - 代码
+  - 博客
 tags:
   - Next
   - Hexo
   - HTML/CSS
 abbrlink: hexo-next-customization
 date: 2018-09-15 13:00:47
-updated: 2019-09-26 15:50:47
 ---
 
 Next一直是Hexo最热门的主题,本站采用了Next的Pisces主题,然后根据其他大佬的美化教程进行适当修改,记录一下.
@@ -123,10 +122,9 @@ Pisces主题的页面比较大,稍微小一点比较有紧凑感,更改了页面
 参考大佬的[配置](guanqr.com/tech/website/hexo-theme-next-customization/)，然后在自己修改一下css就ok。
 
 
-
 ### 其他细节
 
-类似标签、背景动画以及next主题自带原有的功能不再赘述，Google一下大把，最重要的还是要自己喜欢，同时能够在学习大佬的过程中不断提升自己。
+类似标签、背景动画、评论以及next主题自带原有的功能不再赘述，Google一下大把，最重要的还是要自己喜欢，同时能够在学习大佬的过程中不断提升自己。
 
 
 
@@ -140,7 +138,7 @@ Pisces主题的页面比较大,稍微小一点比较有紧凑感,更改了页面
 
 [@神代綺凜](https://moe.best/cross.html) 这个博客是基于Typecho的，但是很多东西还是可以借鉴的嘛～
 
-[荷戟独彷徨](https://www.guanqr.com/)  但是大佬已经转成[Hugo](https://github.com/gohugoio/hugo)了 - -
+[@荷戟独彷徨](https://www.guanqr.com/)  但是大佬已经转成[Hugo](https://github.com/gohugoio/hugo)了 - -
 
 
 
