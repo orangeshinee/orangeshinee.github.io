@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.shineee.win","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"buttons","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Next一直是Hexo最热门的主题,本站采用了Next的Pisces主题,然后根据其他大佬的美化教程进行适当修改,记录一下.虽然不是前端,但是对前端一直有兴趣,相比后端,前端作品完成后给人的成就感来的更直接,看到写出来的东西可以立即展现确实是一直道不出的乐趣.网站纯粹因为兴趣,我是个喜欢小细节让自己满意的人,只要认定了的就必须改,所以经常会因为一丢丢小地方达不到自己想要的而废寝忘食,没办法前端页面">
+<meta name="keywords" content="Next,Hexo,HTML&#x2F;CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo网站主题美化记录">
+<meta property="og:url" content="https://blog.shineee.win/博客/hexo-next-customization/index.html">
+<meta property="og:site_name" content="闲谈梦落花">
+<meta property="og:description" content="Next一直是Hexo最热门的主题,本站采用了Next的Pisces主题,然后根据其他大佬的美化教程进行适当修改,记录一下.虽然不是前端,但是对前端一直有兴趣,相比后端,前端作品完成后给人的成就感来的更直接,看到写出来的东西可以立即展现确实是一直道不出的乐趣.网站纯粹因为兴趣,我是个喜欢小细节让自己满意的人,只要认定了的就必须改,所以经常会因为一丢丢小地方达不到自己想要的而废寝忘食,没办法前端页面">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-24T10:21:18.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo网站主题美化记录">
+<meta name="twitter:description" content="Next一直是Hexo最热门的主题,本站采用了Next的Pisces主题,然后根据其他大佬的美化教程进行适当修改,记录一下.虽然不是前端,但是对前端一直有兴趣,相比后端,前端作品完成后给人的成就感来的更直接,看到写出来的东西可以立即展现确实是一直道不出的乐趣.网站纯粹因为兴趣,我是个喜欢小细节让自己满意的人,只要认定了的就必须改,所以经常会因为一丢丢小地方达不到自己想要的而废寝忘食,没办法前端页面">
+
+<link rel="canonical" href="https://blog.shineee.win/博客/hexo-next-customization/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+<script type="text/javascript" src="/js/cliclove.js"></script>
+
+<script type="text/javascript" src="/js/crash_cheat.js"></script>
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700,700i|Ma+Shan+Zheng|Mansalva|Noto+Sans+SC:400,500,700|Noto+Serif+SC:400,700|Noto+Serif+TC:400,500,700|ZCOOL+XiaoWei&display=swap&subset=chinese-simplified,greek-ext,latin-ext" rel="stylesheet">
+
+<script type="text/javascript" src="//at.alicdn.com/t/font_1299396_6cpm5j1w1v.js"></script>
+<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1299396_6nkikyh84m.css">
+  <title>Hexo网站主题美化记录 | 闲谈梦落花</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100476047-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-100476047-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5b0f5db7b64f269bae378d3cb4136943";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title"><img src="https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/闲谈梦落花.png"></span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><svg class="icon aria-hidden="true"><use xlink:href="#icon-fuchouzhelianmeng-meiguoduichang"></use></svg>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><svg class="icon aria-hidden="true"><use xlink:href="#icon-fuchouzhelianmeng-heiguafu"></use></svg>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><svg class="icon aria-hidden="true"><use xlink:href="#icon-yinhehuweidui-gelute"></use></svg>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><svg class="icon aria-hidden="true"><use xlink:href="#icon-fuchouzhelianmeng-yiren"></use></svg>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><svg class="icon aria-hidden="true"><use xlink:href="#icon-feihongnvwu"></use></svg>读书</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/gallery/" rel="section"><svg class="icon aria-hidden="true"><use xlink:href="#icon-fuchouzhelianmeng-yingyan"></use></svg>相册</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.shineee.win/博客/hexo-next-customization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/ishien-头像.png">
+      <meta itemprop="name" content="shineee">
+      <meta itemprop="description" content="长路漫漫离家，伴君不负韶华。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="闲谈梦落花">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo网站主题美化记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-15 13:00:47" itemprop="dateCreated datePublished" datetime="2018-09-15T13:00:47+08:00">2018-09-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/博客/hexo-next-customization/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/博客/hexo-next-customization/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Next一直是Hexo最热门的主题,本站采用了Next的Pisces主题,然后根据其他大佬的美化教程进行适当修改,记录一下.<br>虽然不是前端,但是对前端一直有兴趣,相比后端,前端作品完成后给人的成就感来的更直接,看到写出来的东西可以立即展现确实是一直道不出的乐趣.<br>网站纯粹因为兴趣,我是个喜欢小细节让自己满意的人,只要认定了的就必须改,所以经常会因为一丢丢小地方达不到自己想要的而<code>废寝忘食</code>,没办法前端页面懂得不多,每次看一点忘一点.也不是没有收获~</p>
+<a id="more"></a>
+<h2 id="网站主页面"><a href="#网站主页面" class="headerlink" title="网站主页面"></a>网站主页面</h2><p><a href="https://shineee.win" target="_blank" rel="noopener">主页面</a>是看到了 <a href="https://github.com/iissnan" target="_blank" rel="noopener">@iissnan</a> 的<a href="http://iissnan.com/" target="_blank" rel="noopener">主页</a>。clone一下,稍稍加了个头像和背景.</p>
+<p>还有一个我很喜欢的是<a href="https://github.com/zchen9" target="_blank" rel="noopener">@zchen9</a>的<a href="https://www.chen9.info/" target="_blank" rel="noopener">主页</a>,可惜功力不够无法<del>复刻</del>（copy）</p>
+<h2 id="博客首页"><a href="#博客首页" class="headerlink" title="博客首页"></a>博客首页</h2><h3 id="修改页面大小"><a href="#修改页面大小" class="headerlink" title="修改页面大小"></a>修改页面大小</h3><p>Pisces主题的页面比较大,稍微小一点比较有紧凑感,更改了页面宽度,使得侧栏和主页面居中：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">960px</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-class">.main-inner</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="侧栏网站logo"><a href="#侧栏网站logo" class="headerlink" title="侧栏网站logo"></a>侧栏网站logo</h3><p>本来是title和subtitle,不好看,单改字体又没那种感觉,就自己ps了一个logo,然后在<code>\next\layout\_partials\header\brand.swig</code>中修改了一下,将title换成了图片:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; config.root &#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"brand"</span> <span class="attr">rel</span>=<span class="string">"start"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"logo-line-before"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"site-title"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img.png"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"logo-line-after"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同时加了一个鼠标移动效果:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.site-meta</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(0,0,0,0.9);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">70px</span> <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">8px</span> <span class="number">20px</span> -<span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.6);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.site-meta</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(0,0,0,0.8);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">15px</span> <span class="number">0</span> <span class="built_in">rgba</span>(0,0,0,0.6);</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.2s</span> linear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义图标"><a href="#自定义图标" class="headerlink" title="自定义图标"></a>自定义图标</h3><p>图标来自<a href="https://www.iconfont.cn/" target="_blank" rel="noopener">阿里巴巴图标库</a>,真的是好用的一皮.选择心仪的图标加入到你的项目中,然后就可以直接调用了.这里采用的是<code>symbol引用</code></p>
+<blockquote>
+<p>这是一种全新的使用方式，应该说这才是未来的主流，也是平台目前推荐的用法。相关介绍可以参考这篇<a href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8cf4382a&amp;helptype=code" target="_blank" rel="noopener">文章</a> 这种用法其实是做了一个svg的集合，与上面两种相比具有如下特点：</p>
+<ul>
+<li>支持多色图标了，不再受单色限制。</li>
+<li>通过一些技巧，支持像字体那样，通过<code>font-size</code>,<code>color</code>来调整样式。</li>
+<li>兼容性较差，支持 ie9+,及现代浏览器。</li>
+<li>浏览器渲染svg的性能一般，还不如png。</li>
+</ul>
+</blockquote>
+<p>主要是因为它是彩色的,好看……o((≧▽≦o) ～</p>
+<ol>
+<li><p>在图标库选择好你的图标后，选择Symbol，复制css链接，加入到<code>blog/source/data/head.swig</code>中</p>
+</li>
+<li><p>在styles.styl中加入.icon样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.icon</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">20px</span>; <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">vertical-align</span>: -<span class="number">4.5px</span>;</span><br><span class="line">    <span class="attribute">fill</span>: currentColor;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><p>在<code>\next\layout\_partials\header\menu-item.swig</code>中修改,将图标格式修改为svg</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- set menuText = __('menu.' + name) | replace('menu.', '') %&#125;</span><br><span class="line">&#123;%- if theme.menu_settings.icons %&#125;</span><br><span class="line">	&#123;%- set menuIcon = '&lt;svg class="icon aria-hidden="true"&gt;&lt;use xlink:href="#' + value.split('||')[1] | trim | default('icon-zhizhuxia') + '"&gt;&lt;/use&gt;&lt;/svg&gt;&lt;br&gt;' %&#125;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>这里参看阿里巴巴图标库的<a href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8cf4382a&amp;helptype=code" target="_blank" rel="noopener">使用教程</a></p>
+<p>最后，在<code>next\_config.yml</code>中将图标名称改成阿里图标库中的名称就可以了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/xxx || icon-github-footer</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>侧栏中社交链接图标也是如此</p>
+<h3 id="归档页面显示十二生肖"><a href="#归档页面显示十二生肖" class="headerlink" title="归档页面显示十二生肖"></a>归档页面显示十二生肖</h3><p>参考大佬的<a href="guanqr.com/tech/website/hexo-theme-next-customization/">配置</a>，然后在自己修改一下css就ok。</p>
+<h3 id="其他细节"><a href="#其他细节" class="headerlink" title="其他细节"></a>其他细节</h3><p>类似标签、背景动画、评论以及next主题自带原有的功能不再赘述，Google一下大把，最重要的还是要自己喜欢，同时能够在学习大佬的过程中不断提升自己。</p>
+<h2 id="参考大佬"><a href="#参考大佬" class="headerlink" title="参考大佬"></a>参考大佬</h2><p>以下是在博客搭建和美化过程中搜到的大佬们，网站很棒内容很干，希望有一天也能成为<del>大佬中的一员</del>(不，你不想.jpg)</p>
+<p><a href="https://co5.me/" target="_blank" rel="noopener">@co5=Shioko</a></p>
+<p><a href="https://moe.best/cross.html" target="_blank" rel="noopener">@神代綺凜</a> 这个博客是基于Typecho的，但是很多东西还是可以借鉴的嘛～</p>
+<p><a href="https://www.guanqr.com/" target="_blank" rel="noopener">@荷戟独彷徨</a>  但是大佬已经转成<a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a>了 - -</p>
+<p>长路漫漫，希望可以走的远一点。</p>
+<p>多写，多搜，多思考。</p>
+
+    </div>
+
+    
+    
+    <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----文章结束 ☆⌒(*＾-゜)v 感谢浏览----</div>
+    
+</div>
+  
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Next/" rel="tag"><i class="fa fa-tag"></i> Next</a>
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/HTML-CSS/" rel="tag"><i class="fa fa-tag"></i> HTML/CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/闲谈/justwanttotalk/" rel="prev" title="谈一个遥远的话题">
+      <i class="fa fa-chevron-left"></i> 谈一个遥远的话题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/博客/custom-album/" rel="next" title="Hexo添加自定义相册">
+      Hexo添加自定义相册 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网站主页面"><span class="nav-number">1.</span> <span class="nav-text">网站主页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客首页"><span class="nav-number">2.</span> <span class="nav-text">博客首页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改页面大小"><span class="nav-number">2.1.</span> <span class="nav-text">修改页面大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧栏网站logo"><span class="nav-number">2.2.</span> <span class="nav-text">侧栏网站logo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义图标"><span class="nav-number">2.3.</span> <span class="nav-text">自定义图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归档页面显示十二生肖"><span class="nav-number">2.4.</span> <span class="nav-text">归档页面显示十二生肖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他细节"><span class="nav-number">2.5.</span> <span class="nav-text">其他细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考大佬"><span class="nav-number">3.</span> <span class="nav-text">参考大佬</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="shineee"
+      src="https://picsshine.oss-cn-shenzhen.aliyuncs.com/blogpics/ishien-头像.png">
+  <p class="site-author-name" itemprop="name">shineee</p>
+  <div class="site-description" itemprop="description">长路漫漫离家，伴君不负韶华。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/orangeshinee" title="GitHub → https://github.com/orangeshinee" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-footer"></use></svg>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shineeee.zhang@gmail.com" title="E-Mail → mailto:shineeee.zhang@gmail.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon--contactemailgmailinboxmailsendsend"></use></svg>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/shinelovesmile" title="Instagram → https://instagram.com/shinelovesmile" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-ins1"></use></svg>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://pic.sikie.wang" title="shinePics → https://pic.sikie.wang" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-picture1"></use></svg>shinePics</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shineee</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">15k</span>
+</div>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.bootcss.com/pangu/4.0.7/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '1dB1DyLhCr7bbQfYzzQImDIE-MdYXbMMI',
+      appKey     : 'Tp6tjCNwKLFfUWrlIfQ5wHJK',
+      placeholder: "Hello my friend ~",
+      avatar     : 'monsterid',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
