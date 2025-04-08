@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chrome on 闲谈梦落花</title><link>https://blog.shineee.site/tags/chrome/</link><description>Recent content in Chrome on 闲谈梦落花</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 27 Apr 2017 15:50:47 +0800</lastBuildDate><atom:link href="https://blog.shineee.site/tags/chrome/index.xml" rel="self" type="application/rss+xml"/><item><title>常用的Chrome拓展</title><link>https://blog.shineee.site/p/2016/10/17/good-chrome-extensions/</link><pubDate>Mon, 17 Oct 2016 23:00:47 +0800</pubDate><guid>https://blog.shineee.site/p/2016/10/17/good-chrome-extensions/</guid><description>&lt;p>Chrome作为除IE之外大佬级别的存在,对于程序猿来说是不可缺失的.虽然它吃内存,耗电大,但是人们选择它必然有足够的理由.于我而言,更好的拓展性就是最吸引我的.&lt;/p>
+&lt;p>不得不说,google的拓展插件让浏览器不再仅仅是浏览器,随着人们日常生活的需求增加,浏览网页也不再是单纯的浏览网页了&amp;ndash; 好怪异的话啊(&lt;/p>
+&lt;p>工具只是工具,更好的使用工具才能让工具发挥出应有的潜力.简单讲讲我经常用的几款插件&lt;/p>
+&lt;h2 id="谷歌访问助手">谷歌访问助手
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/haotian-wang/google-access-helper" target="_blank" rel="noopener"
+>https://github.com/haotian-wang/google-access-helper&lt;/a>&lt;/p>
+&lt;p>不必多说.&lt;/p>
+&lt;h2 id="crxmouse-chrome-gesture">crxMouse Chrome Gesture
+&lt;/h2>&lt;p>​ 一款手势插件，十分方便快捷，当然某些国产浏览器自带手势功能。这个插件功能非常多，除了基本的前进后退关闭等功能，还有额外的拖曳编辑等，并支持配置的导入导出以及云同步。&lt;/p>
+&lt;h2 id="google翻译">Google翻译
+&lt;/h2>&lt;p>官方出品，支持页面划词翻译和整个页面翻译。之前用有道，但是每次都要开软件，而且很不人性化，划词之后直接翻译了，不知道现在改了没有。这个插件在选词之后会出现一个图标，点击即可翻译。并且可以自选语言（当然啦，机翻嘛，效果你懂就好）&lt;/p>
+&lt;h2 id="onenote-web-clipper">Onenote Web Clipper
+&lt;/h2>&lt;p>微软自家的插件，如果你是Onenote用户，这个插件必不可少。因为在 Microsoft Edge 中已经集成了Onenote的手机功能，在Edge中你可以直接将网页发送到Onenote，而且可以全页面截取，并且可以在上面进行修改编辑。但是Chrome上的插件功能更加全面，不仅支持页面截取，还&lt;/p>
+&lt;p>甚至可以选中一段文字直接收集发送到Onenote，自带荧光笔&lt;/p>
+&lt;p>就问你怕不怕咯&lt;/p>
+&lt;h2 id="ublock-origin">uBlock origin
+&lt;/h2>&lt;p>一款高效的网络请求过滤工具，占用极低的内存和 CPU。我用它代替了AdBlock，所以你知道它是做什么的咯。&lt;/p>
+&lt;p>想必AdBlock，占用内存更小，嗯，主要是这点。。其实功能上都差不多了，现在许多网站（主要是视频网站）都反AdBlock了，虽然广告屏蔽了，但是你得看一段黑屏。尽管如此，也好过让我看那些奇葩页游的广告。(你的时间非常值钱(&lt;em>^_^&lt;/em>)&lt;/p>
+&lt;h2 id="simple-undo-close">Simple Undo Close
+&lt;/h2>&lt;p>相当于一个历史记录，点击之后会看到刚刚关闭的网页，相当于撤销吧。许多国产浏览器也是自带的有&lt;/p>
+&lt;h2 id="ie-tab">IE Tab
+&lt;/h2>&lt;p>IE作为默认浏览器那么多年，终于也随着Win10 Edge的出现退出了舞台，でも，很多网站是基于ie内核浏览器建立的，要求你使用ie内核的浏览器才能正常工作，比如网银什么的。而且，学校的官网，必须让你用IE，还是IE8.0，这就很伤了。什么年代了你让我去哪儿给你找ie8- - 这个插件在运行之前会自动弹出一个下载，点击保存之后运行就能正常使用了&lt;/p>
+&lt;h2 id="extensions-manager-aka-switcher">Extensions Manager (aka Switcher)
+&lt;/h2>&lt;p>管理插件的插件。很可能你是个插件达人，下载了好多好多拓展，但是很多你平常都用不到，如果一直开着是十分占内存的，删掉又没必要，所以这款管理插件十分贴人心。简洁明了占内存小，除了管理拓展之外还可以管理Chrome主题。（讲真我每次换以前的主题都要重新到WebStroe搜索真的好烦躁。。）&lt;/p>
+&lt;p>&lt;img src="https://pic.sikie.wang/images/2019/10/08/extension.png"
+loading="lazy"
+alt="extension.png"
+>&lt;/p></description></item></channel></rss>

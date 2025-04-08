@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Obsidian on 闲谈梦落花</title><link>https://blog.shineee.site/tags/obsidian/</link><description>Recent content in Obsidian on 闲谈梦落花</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Apr 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.shineee.site/tags/obsidian/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian 个人知识库搭建实践：从配置到应用</title><link>https://blog.shineee.site/p/2024/04/08/obsidian-%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%94%E7%94%A8/</link><pubDate>Mon, 08 Apr 2024 10:00:00 +0800</pubDate><guid>https://blog.shineee.site/p/2024/04/08/obsidian-%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%94%E7%94%A8/</guid><description>&lt;img src="https://pics.shineee.site/2025/04/df4dc34e306b63b4bedb67135828f99b.png" alt="Featured image of post Obsidian 个人知识库搭建实践：从配置到应用" />&lt;p>近日拜读了 guizang 老师关于 #Obsidian 的精彩博文（&lt;a class="link" href="https://mp.weixin.qq.com/s/VRQ_QWjuUqvJC8FeAZgvzw" target="_blank" rel="noopener"
+>链接&lt;/a>），不禁勾起了我与这款强大笔记软件的点滴回忆。曾几何时，我也曾希望借助 Obsidian 打造属于自己的知识宝库，然而那时浅尝辄止，笔记散落各处，未能成体系，实属憾事。&lt;/p>
+&lt;p>在信息爆炸的时代，Readwise、Cubox、Flomo 等工具层出不穷，各具优势，却也让信息碎片化，分散在各个角落，检索整合颇为不便。痛定思痛，我决定重新出发，以 Obsidian 为核心，系统整合博客草稿、网页剪藏、读书笔记等各类信息流，构筑一座真正属于自己的知识殿堂。&lt;/p>
+&lt;hr>
+&lt;h2 id="安装-obsidian万丈高楼平地起">安装 Obsidian：万丈高楼平地起
+&lt;/h2>&lt;p>第一步自然是迎接主角登场。从 Obsidian 官方网站下载最新版本进行安装，不再赘述。&lt;/p>
+&lt;h2 id="配置网页剪藏信息输入的第一站">配置网页剪藏：信息输入的第一站
+&lt;/h2>&lt;p>信息的高效输入，是知识管理的起点。参考 guizang 老师的经验，选择了OB 的官方网页剪藏工具，通过插件和配置的API接口，将网上的灵感、资料快捷地导入 Obsidian，确保信息流顺畅汇入知识库。&lt;/p>
+&lt;h2 id="搭建云端同步多端无缝数据无忧">搭建云端同步：多端无缝，数据无忧
+&lt;/h2>&lt;p>为了实现多设备间的无缝切换与数据安全，稳妥的同步方案必不可少。我采用了 &lt;code>remotely-sync&lt;/code> 插件，结合 OneDrive 云存储，实现笔记库的自动同步与备份。其实也可以用 cloudflare 的 R2 存储，不过我的 OneDrive 容量大，不用白不用。其次国内的同步速度还 OK。&lt;/p>
+&lt;h2 id="构建图片存储方案图文并茂行云流水">构建图片存储方案：图文并茂，行云流水
+&lt;/h2>&lt;p>图片管理是 Obsidian 使用中常见的难题。为了获得更优体验，我选择了 Cloudflare R2 作为图床，并进行了以下配置：&lt;/p>
+&lt;h3 id="图床配置">图床配置
+&lt;/h3>&lt;p>相关文章比较多，不赘述，参考&lt;a class="link" href="https://blog.esing.dev/2024/08/29/cloudflare-r2-ims/" target="_blank" rel="noopener"
+>使用 Cloudflare R2 存储桶搭建图床 | Esing 的小站&lt;/a>&lt;/p>
+&lt;h3 id="上传工具">上传工具
+&lt;/h3>&lt;p>摈弃图形界面的 PicGo App，转而使用更为轻便高效的 PicGo Core 命令行工具，简单高效。
+&lt;a class="link" href="https://picgo.github.io/PicGo-Core-Doc/" target="_blank" rel="noopener"
+>官网链接&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>全局安装
+&lt;code>npm install picgo -g&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>配置 R2
+picgo core 本身不支持 &lt;code>S3&lt;/code> ，所以这里借助 &lt;a class="link" href="https://github.com/wayjam/picgo-plugin-s3/tree/main" target="_blank" rel="noopener"
+>&lt;code>picgo-plugin-s3&lt;/code>&lt;/a> 项目，在 PicGo Core 中配置好 Cloudflare R2 的访问凭证和存储桶信息。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>安装插件 &lt;code>picgo set uploader aws-s3&lt;/code>&lt;/p>
+&lt;p>参考配置&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;picBed&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;uploader&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;aws-s3&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;current&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;aws-s3&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;aws-s3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;accessKeyID&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;secretAccessKey&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;bucketName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;pics&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;uploadPath&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;{year}/{month}/{md5}.{extName}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;region&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;auto&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;endpoint&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;https://xxx.r2.cloudflarestorage.com&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;rejectUnauthorized&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;acl&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;public-read&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;pathStyleAccess&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;outputURLPattern&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;{protocol}://example.com/{path}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;picgoPlugins&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;picgo-plugin-s3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>配置完成后，可以测试下，看看地址是否与 R2 上的地址匹配，如果上传成功，但是生成的链接不一致，应该是 &lt;code>outputURLPattern&lt;/code> 的设置问题，请参考项目文档进行修改；
+&lt;img src="https://pics.shineee.site/2025/04/73dcb6e4d8f6f1462f4d8c09a292ac92.png"
+loading="lazy"
+alt="上传案例"
+>&lt;/p>
+&lt;h3 id="自动上传">自动上传
+&lt;/h3>&lt;p>在 Obsidian 中安装 &lt;a class="link" href="https://github.com/renmu123/obsidian-image-auto-upload-plugin" target="_blank" rel="noopener"
+>&lt;code>obsidian-image-auto-upload-plugin&lt;/code>&lt;/a>，实现复制粘贴图片时自动上传到 R2 图床，免去手动操作的繁琐。&lt;/p>
+&lt;h4 id="遇到个小坑">遇到个小坑
+&lt;/h4>&lt;p>配置过程中，在 macOS 下遇到 PicGo 命令无法识别的情况。参考&lt;a class="link" href="https://github.com/renmu123/obsidian-image-auto-upload-plugin/issues/20" target="_blank" rel="noopener"
+>相关 Issue&lt;/a>，将插件命令设置为&lt;br>
+&lt;code>export PATH=&amp;quot;/opt/homebrew/bin:$PATH&amp;quot; &amp;amp;&amp;amp; /opt/homebrew/bin/picgo u&lt;/code>，成功解决问题。&lt;/p>
+&lt;hr>
+&lt;h2 id="尾声重塑知识管理的起点">尾声：重塑知识管理的起点
+&lt;/h2>&lt;p>至此，Obsidian 的核心配置告一段落。这不仅是一场工具的升级，更是对个人知识管理体系的重塑。前路漫漫，唯有日拱一卒，方能将这片知识的土地耕耘成丰饶的园地，滋养心智，助力成长。未来，愿与 Obsidian 共同书写属于自己的精彩篇章。&lt;/p>
+&lt;hr>
+&lt;h1 id="相关链接">相关链接
+&lt;/h1>&lt;ul>
+&lt;li>guizang 老师 Obsidian 经验分享：&lt;br>
+&lt;a class="link" href="https://mp.weixin.qq.com/s/VRQ_QWjuUqvJC8FeAZgvzw" target="_blank" rel="noopener"
+>https://mp.weixin.qq.com/s/VRQ_QWjuUqvJC8FeAZgvzw&lt;/a>&lt;/li>
+&lt;li>&lt;code>picgo-plugin-s3&lt;/code> 插件：&lt;br>
+&lt;a class="link" href="https://github.com/wayjam/picgo-plugin-s3/tree/main" target="_blank" rel="noopener"
+>https://github.com/wayjam/picgo-plugin-s3/tree/main&lt;/a>&lt;/li>
+&lt;li>&lt;code>obsidian-image-auto-upload-plugin&lt;/code> 插件：&lt;br>
+&lt;a class="link" href="https://github.com/renmu123/obsidian-image-auto-upload-plugin" target="_blank" rel="noopener"
+>https://github.com/renmu123/obsidian-image-auto-upload-plugin&lt;/a>&lt;/li>
+&lt;li>PicGo 路径问题讨论：&lt;br>
+&lt;a class="link" href="https://github.com/renmu123/obsidian-image-auto-upload-plugin/issues/20" target="_blank" rel="noopener"
+>https://github.com/renmu123/obsidian-image-auto-upload-plugin/issues/20&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

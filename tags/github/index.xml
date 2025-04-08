@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github on 闲谈梦落花</title><link>https://blog.shineee.site/tags/github/</link><description>Recent content in Github on 闲谈梦落花</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 26 Apr 2017 15:50:47 +0800</lastBuildDate><atom:link href="https://blog.shineee.site/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>关于绑定github pages二级域名</title><link>https://blog.shineee.site/p/2016/10/10/github-pages-secend-name/</link><pubDate>Mon, 10 Oct 2016 10:00:47 +0800</pubDate><guid>https://blog.shineee.site/p/2016/10/10/github-pages-secend-name/</guid><description>&lt;p>最近在用Hexo配置好博客的&lt;a class="link" href="http://blog.shineee.site" target="_blank" rel="noopener"
+>主页面&lt;/a>后，又想来倒持一下来弄个好看的真·主页。后来在各个Hexo的主题下面，看到了&lt;a class="link" href="https://github.com/iissnan" target="_blank" rel="noopener"
+>@iissnan&lt;/a>的&lt;a class="link" href="http://iissnan.com/" target="_blank" rel="noopener"
+>主页&lt;/a>。很好看，就去clone下来了，稍微稍微加工了一下。&lt;/p>
+&lt;p>因为github.io绑定的域名是blog.shineee.site。所以新建了一个repo然后在主页面新建CNAME指向真主页域名shineee.win就可以了。&lt;/p>
+&lt;p>在dnspod解析里面，加上一个blog的指向github.io就ok。&lt;/p></description></item></channel></rss>

@@ -1,0 +1,279 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。\n"><title>改进的Python贴吧爬虫代码</title>
+<link rel=canonical href=https://blog.shineee.site/p/2016/09/26/python-spiders-improved/><link rel=stylesheet href=/scss/style.min.9f95e55efaae412e2c5c1bf71338bd0bf9a03ad89376e34b04b4ff94a7f46e45.css><meta property='og:title' content="改进的Python贴吧爬虫代码"><meta property='og:description' content="之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。\n"><meta property='og:url' content='https://blog.shineee.site/p/2016/09/26/python-spiders-improved/'><meta property='og:site_name' content='闲谈梦落花'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Python'><meta property='article:tag' content='爬虫'><meta property='article:published_time' content='2016-09-26T10:00:47+08:00'><meta property='article:modified_time' content='2017-04-26T10:40:47+08:00'><meta property='og:image' content='https://blog.shineee.site/img/avatar.png'><meta name=twitter:site content="@@shinelovesmile"><meta name=twitter:creator content="@@shinelovesmile"><meta name=twitter:title content="改进的Python贴吧爬虫代码"><meta name=twitter:description content="之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。\n"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://blog.shineee.site/img/avatar.png'><link rel="shortcut icon" href=/favicon.png><link rel=stylesheet href=https://chinese-fonts-cdn.deno.dev/packages/lywkpmydb/dist/LXGWWenKaiScreen/result.css><link rel=stylesheet href=https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Medium/result.css><link rel=stylesheet href=https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_4717ec72003b6355.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>闲谈梦落花</a></h1><h2 class=site-description>长路漫漫离家，伴君不负韶华</h2></div></header><ol class=menu-social><li><a href=https://github.com/orangeshinee target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://x.com/shinelovesmile target=_blank title=Twitter rel=me><svg class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>首页</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/gallery/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>相册</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E4%BB%A3%E7%A0%81/>代码</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/2016/09/26/python-spiders-improved/>改进的Python贴吧爬虫代码</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2016-09-26</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 4 分钟</time></div></footer></div></header><section class=article-content><p>之前在知乎上面看到许多用Python爬虫做的有趣项目，于是也去学习了一番（入门）。看到很多教程都有关于贴吧爬虫的小例子，于是自己也跟着做了一遍。</p><p>可能是教程时间有点早了，多数都是两三年前的，基本都是用正则表达式来提取关键信息，而且还专门写了一个类来处理各种HTML标签。正则表达式并不难学，但是要真正弄清除却很耗时间，尤其对于新手来说，读懂正则表达式是一件很头疼的事，写出正确的表达式更头疼。</p><p>后来学习了requests和beautiful soup两个库，那感觉，仿佛春风拂过泸沽湖,秋雨浸润九寨沟。怎一个<strong>爽</strong>字了得。</p><p>关于requests和beautiful soup两个库的教程网上有很多，我看的是<a class=link href=http://cuiqingcai.com/1052.html target=_blank rel=noopener>崔庆才的博客</a>,内容十分全面，里面的Python爬虫教程也十分适合入门学习。</p><p>在其原有的贴吧爬虫代码的基础上，我将提取内容的正则表达式全部替换成了用beautiful soup来获取网页标签内容。</p><p>简单来说，Beautiful Soup是python的一个库，最主要的功能是从网页抓取数据。官方解释如下：</p><blockquote><p>Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。</p><p>Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup就不能自动识别编码方式了。然后，你仅仅需要说明一下原始编码方式就可以了。</p><p>Beautiful Soup已成为和lxml、html6lib一样出色的python解释器，为用户灵活地提供不同的解析策略或强劲的速度。</p></blockquote><p>上代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1>#-*- coding: UTF-8 -*-</span>
+</span></span><span class=line><span class=cl><span class=c1>#__author__shineee</span>
+</span></span><span class=line><span class=cl><span class=c1>#__time__2016.10__</span>
+</span></span><span class=line><span class=cl><span class=c1>#__Python27__</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>re</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>bs4</span> <span class=kn>import</span> <span class=n>BeautifulSoup</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>itertools</span> <span class=kn>import</span> <span class=n>chain</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>string</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>sys</span>
+</span></span><span class=line><span class=cl><span class=n>reload</span><span class=p>(</span><span class=n>sys</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>sys</span><span class=o>.</span><span class=n>setdefaultencoding</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Tieba</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>baseUrl</span><span class=p>,</span> <span class=n>seeLZ</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=c1># base链接地址</span>
+</span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>baseURL</span> <span class=o>=</span> <span class=n>baseUrl</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 是否只看楼主</span>
+</span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>seeLZ</span> <span class=o>=</span> <span class=s1>&#39;?see_lz=&#39;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>seeLZ</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 全局file变量，文件写入操作对象</span>
+</span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>file</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>		<span class=c1>#默认的标题，如果没有成功获取到标题的话则会用这个标题</span>
+</span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>defaultTitle</span> <span class=o>=</span> <span class=sa>u</span><span class=s2>&#34;百度贴吧&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>getPage</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>pageNum</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 构建URL</span>
+</span></span><span class=line><span class=cl>			<span class=n>url</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>baseURL</span> <span class=o>+</span> <span class=bp>self</span><span class=o>.</span><span class=n>seeLZ</span> <span class=o>+</span> <span class=s1>&#39;&amp;pn=&#39;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>pageNum</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=n>response</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>)</span><span class=o>.</span><span class=n>text</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=c1># 返回UTF-8格式编码内容</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>response</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s1>&#39;&lt;br&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 无法连接，报错</span>
+</span></span><span class=line><span class=cl>		<span class=k>except</span> <span class=ne>ValueError</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=nb>hasattr</span><span class=p>(</span><span class=n>e</span><span class=p>,</span> <span class=s2>&#34;reason&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>				<span class=nb>print</span> <span class=sa>u</span><span class=s2>&#34;连接百度贴吧失败,错误原因&#34;</span><span class=p>,</span> <span class=n>e</span><span class=o>.</span><span class=n>reason</span>
+</span></span><span class=line><span class=cl>				<span class=k>return</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1># 获取帖子标题</span>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>getTitle</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>page</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=c1>#新建soup对象</span>
+</span></span><span class=line><span class=cl>		<span class=n>soup</span> <span class=o>=</span> <span class=n>BeautifulSoup</span><span class=p>(</span><span class=n>page</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#获取标题</span>
+</span></span><span class=line><span class=cl>		<span class=n>title</span> <span class=o>=</span> <span class=n>unicode</span><span class=p>(</span><span class=n>soup</span><span class=o>.</span><span class=n>h3</span><span class=o>.</span><span class=n>string</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=n>title</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=c1># 如果存在，则返回标题</span>
+</span></span><span class=line><span class=cl>			<span class=c1># 若文件名中有/符号则替换掉 否则写入文件时会出错</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>title</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1># 获取帖子一共有多少页</span>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>getPageNum</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>page</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=n>soup</span> <span class=o>=</span> <span class=n>BeautifulSoup</span><span class=p>(</span><span class=n>page</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#利用soup的select规则找出帖子总页码数</span>
+</span></span><span class=line><span class=cl>		<span class=n>page</span> <span class=o>=</span> <span class=n>soup</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=s1>&#39;li[style=&#34;margin-left:8px&#34;]&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=n>ii</span> <span class=ow>in</span> <span class=n>page</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=n>nums</span> <span class=o>=</span> <span class=n>ii</span><span class=o>.</span><span class=n>get_text</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>			<span class=k>break</span>
+</span></span><span class=line><span class=cl>		<span class=n>num</span> <span class=o>=</span> <span class=n>re</span><span class=o>.</span><span class=n>findall</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;[0-9]+(?=[^0-9]*$)&#39;</span><span class=p>,</span> <span class=n>nums</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=n>result</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>num</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=n>result</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>setFileTitle</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>title</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 如果标题不是为None，即成功获取到标题</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=n>title</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=bp>self</span><span class=o>.</span><span class=n>file</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=n>title</span> <span class=o>+</span> <span class=s2>&#34;.txt&#34;</span><span class=p>,</span> <span class=s2>&#34;w+&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=bp>self</span><span class=o>.</span><span class=n>file</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>defaultTitle</span> <span class=o>+</span> <span class=s2>&#34;.txt&#34;</span><span class=p>,</span> <span class=s2>&#34;w+&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1># 获取每一层楼的内容,传入页面内容</span>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>getContent</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>page</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 匹配所有楼层的内容</span>
+</span></span><span class=line><span class=cl>		<span class=n>contents1</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>		<span class=n>contents2</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>		<span class=n>soup</span> <span class=o>=</span> <span class=n>BeautifulSoup</span><span class=p>(</span><span class=n>page</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#获取帖子发布时间</span>
+</span></span><span class=line><span class=cl>		<span class=n>time</span> <span class=o>=</span> <span class=n>soup</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=s1>&#39;div[class=&#34;post-tail-wrap&#34;]&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=n>ii</span> <span class=ow>in</span> <span class=n>time</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=n>texts</span> <span class=o>=</span> <span class=n>ii</span><span class=o>.</span><span class=n>get_text</span><span class=p>(</span><span class=s1>&#39;  &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=c1>#将无用信息去除掉</span>
+</span></span><span class=line><span class=cl>			<span class=n>texts2</span> <span class=o>=</span> <span class=n>texts</span><span class=o>.</span><span class=n>rjust</span><span class=p>(</span><span class=mi>80</span><span class=p>)</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=sa>u</span><span class=s1>&#39;举报  |  侵权举报  有害信息举报  &#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=n>contents1</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>texts2</span> <span class=o>+</span> <span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span> <span class=o>+</span> <span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span> <span class=o>+</span> <span class=s1>&#39;-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=c1># 提取正文内容</span>
+</span></span><span class=line><span class=cl>		<span class=n>items</span> <span class=o>=</span> <span class=n>soup</span><span class=o>.</span><span class=n>select</span><span class=p>(</span><span class=s1>&#39;cc&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=n>iii</span> <span class=ow>in</span> <span class=n>items</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=n>contents2</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>iii</span><span class=o>.</span><span class=n>get_text</span><span class=p>()</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=s1>&#39;utf8&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>lstrip</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#将两个list合并为一个list 重叠合并</span>
+</span></span><span class=line><span class=cl>		<span class=n>contents</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>chain</span><span class=o>.</span><span class=n>from_iterable</span><span class=p>(</span><span class=nb>zip</span><span class=p>(</span><span class=n>contents2</span><span class=p>,</span> <span class=n>contents1</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=n>contents</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1># 向文件写入每一楼的信息</span>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>writeData</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>contents</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=n>item</span> <span class=ow>in</span> <span class=n>contents</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=bp>self</span><span class=o>.</span><span class=n>file</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>item</span><span class=o>+</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=o>+</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=o>+</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=n>indexPage</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getPage</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=n>pageNum</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getPageNum</span><span class=p>(</span><span class=n>indexPage</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=n>title</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getTitle</span><span class=p>(</span><span class=n>indexPage</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=bp>self</span><span class=o>.</span><span class=n>setFileTitle</span><span class=p>(</span><span class=n>title</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=n>pageNum</span> <span class=o>==</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=nb>print</span> <span class=s2>&#34;URL已失效，请重试&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span>
+</span></span><span class=line><span class=cl>		<span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=nb>print</span> <span class=s2>&#34;该帖子共有&#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>pageNum</span><span class=p>)</span> <span class=o>+</span> <span class=s2>&#34;页&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=nb>int</span><span class=p>(</span><span class=n>pageNum</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>				<span class=nb>print</span> <span class=s2>&#34;正在写入第&#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>i</span><span class=p>)</span> <span class=o>+</span> <span class=s2>&#34;页数据&#34;</span>
+</span></span><span class=line><span class=cl>				<span class=n>page</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getPage</span><span class=p>(</span><span class=n>i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>				<span class=n>contents</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getContent</span><span class=p>(</span><span class=n>page</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>				<span class=bp>self</span><span class=o>.</span><span class=n>writeData</span><span class=p>(</span><span class=n>contents</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>				<span class=c1># 出现写入异常</span>
+</span></span><span class=line><span class=cl>		<span class=k>except</span> <span class=ne>IOError</span><span class=p>,</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=nb>print</span> <span class=s2>&#34;写入异常，原因&#34;</span> <span class=o>+</span> <span class=n>e</span><span class=o>.</span><span class=n>message</span>
+</span></span><span class=line><span class=cl>		<span class=k>finally</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=nb>print</span> <span class=s2>&#34;写入任务完成&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span> <span class=sa>u</span><span class=s2>&#34;请输入帖子代号&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>baseURL</span> <span class=o>=</span> <span class=s1>&#39;http://tieba.baidu.com/p/&#39;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>raw_input</span><span class=p>(</span><span class=sa>u</span><span class=s1>&#39;http://tieba.baidu.com/p/&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>seeLZ</span> <span class=o>=</span> <span class=n>raw_input</span><span class=p>(</span><span class=sa>u</span><span class=s2>&#34;是否只获取楼主发言，是输入1，否输入0</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>bdtb</span> <span class=o>=</span> <span class=n>Tieba</span><span class=p>(</span><span class=n>baseURL</span><span class=p>,</span> <span class=n>seeLZ</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>bdtb</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>相比较正则表达式而言，soup更加清晰明了，也更便于操作。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/python/>Python</a>
+<a href=/tags/%E7%88%AC%E8%99%AB/>爬虫</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section><section class=article-lastmod><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>最后更新于 2017-04-26 10:40:47</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".main-article");renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/2016/11/10/10762/><div class=article-details><h2 class=article-title>python爬取网站图片</h2></div></a></article><article><a href=/p/2016/10/10/github-pages-secend-name/><div class=article-details><h2 class=article-title>关于绑定github pages二级域名</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=orangeshinee/BlogComments issue-term=pathname crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>let utterancesLoaded=!1;function setUtterancesTheme(e){let t=document.querySelector(".utterances iframe");t&&t.contentWindow.postMessage({type:"set-theme",theme:`github-${e}`},"https://utteranc.es")}addEventListener("message",e=>{if(e.origin!=="https://utteranc.es")return;utterancesLoaded=!0,setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener("onColorSchemeChange",e=>{if(!utterancesLoaded)return;setUtterancesTheme(e.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+2016 -
+2025 闲谈梦落花</section><section class=powerby>Made By ❤️ishineee_<br>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
