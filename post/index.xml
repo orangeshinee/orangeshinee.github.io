@@ -1,4 +1,200 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 闲谈梦落花</title><link>https://blog.shineee.site/post/</link><description>Recent content in Posts on 闲谈梦落花</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Apr 2024 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.shineee.site/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian 个人知识库搭建实践：从配置到应用</title><link>https://blog.shineee.site/p/2024/04/08/obsidian-%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%94%E7%94%A8/</link><pubDate>Mon, 08 Apr 2024 10:00:00 +0800</pubDate><guid>https://blog.shineee.site/p/2024/04/08/obsidian-%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%94%E7%94%A8/</guid><description>&lt;img src="https://pics.shineee.site/2025/04/df4dc34e306b63b4bedb67135828f99b.png" alt="Featured image of post Obsidian 个人知识库搭建实践：从配置到应用" />&lt;p>近日拜读了 guizang 老师关于 #Obsidian 的精彩博文（&lt;a class="link" href="https://mp.weixin.qq.com/s/VRQ_QWjuUqvJC8FeAZgvzw" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 闲谈梦落花</title><link>https://blog.shineee.site/post/</link><description>Recent content in Posts on 闲谈梦落花</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 18 Jun 2025 11:45:38 +0800</lastBuildDate><atom:link href="https://blog.shineee.site/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian 微信读书插件适配 Thino</title><link>https://blog.shineee.site/p/2025/06/18/obsidian-%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%8F%92%E4%BB%B6%E9%80%82%E9%85%8D-thino/</link><pubDate>Wed, 18 Jun 2025 09:45:25 +0800</pubDate><guid>https://blog.shineee.site/p/2025/06/18/obsidian-%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%8F%92%E4%BB%B6%E9%80%82%E9%85%8D-thino/</guid><description>&lt;img src="https://pics.shineee.site/2025/06/c88de1e3fd640dee2bfb915118576867.jpg" alt="Featured image of post Obsidian 微信读书插件适配 Thino" />&lt;h2 id="项目背景与目标">项目背景与目标
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/orangeshinee/obsidian-weread-plugin-fork/tree/main" target="_blank" rel="noopener"
+>本项目 obsidian-weread-plugin-thino&lt;/a>基于社区版 &lt;a class="link" href="https://github.com/zhaohongxuan/obsidian-weread-plugin" target="_blank" rel="noopener"
+>obsidian-weread-plugin&lt;/a> 进行深度定制，旨在更好地服务于微信读书用户，尤其是需要将读书笔记同步到 &lt;a class="link" href="https://pkmer.cn/products/thino/" target="_blank" rel="noopener"
+>Thino插件&lt;/a>的非Pro用户。通过本插件，用户可以实现微信读书高亮、书评等内容的自动化同步、分类与标签化管理。&lt;/p>
+&lt;h2 id="主要功能改进">主要功能改进
+&lt;/h2>&lt;h3 id="1-thino-适配与推送格式优化">1. Thino 适配与推送格式优化
+&lt;/h3>&lt;ul>
+&lt;li>推送内容格式已适配 Thino 的 Memos 需求，支持 Pro 会员直接集成。&lt;/li>
+&lt;li>日记推送内容可自定义，满足不同平台的格式要求。&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-自定义标签功能">2. 自定义标签功能
+&lt;/h3>&lt;ul>
+&lt;li>支持在插件设置页自定义标签内容（如 &lt;code>#微信读书&lt;/code>）。&lt;/li>
+&lt;li>标签可自动添加到每条日历推送（如 Thino/Memos 格式）引用行的前面，便于后续分类、检索和自动化处理。&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-动态模板变量支持">3. 动态模板变量支持
+&lt;/h3>&lt;ul>
+&lt;li>自定义标签支持 nunjucks 模板语法，可引用如 &lt;code>{{metaData.title}}&lt;/code>、&lt;code>{{metaData.author}}&lt;/code> 等变量。&lt;/li>
+&lt;li>例如设置 &lt;code>#{{metaData.title}}&lt;/code>，则每条推送内容会自动带上当前书名作为标签，实现更智能的内容标记。&lt;/li>
+&lt;/ul>
+&lt;h2 id="核心代码修改说明">核心代码修改说明
+&lt;/h2>&lt;h3 id="增加序章内容笔记解析">增加序章内容笔记解析
+&lt;/h3>&lt;ul>
+&lt;li>&lt;code>parseResponse.ts&lt;/code>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ts" data-lang="ts">&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 提取序章笔记（如果存在）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kr">const&lt;/span> &lt;span class="nx">bookReview&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">notebook&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">bookReview&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">chapterReviews&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">bookReview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">chapterReviews&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="p">[])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">flatMap&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">chapterReview&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="nx">chapterReview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">reviews&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="p">[])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">filter&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">review&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">createTime&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">window&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">moment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">review&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">created&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;YYYYMMDD&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">today&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="nx">createTime&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="修改推送到日记的格式">修改推送到日记的格式
+&lt;/h3>&lt;ul>
+&lt;li>&lt;code>fileManager.ts&lt;/code>&lt;/li>
+&lt;li>Thino是根据时间来渲染的，所以最后是 &lt;code>- 时间 #标签 blockId 格式&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ts" data-lang="ts">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">private&lt;/span> &lt;span class="nx">buildAppendContent&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">dailyNoteRefs&lt;/span>: &lt;span class="kt">DailyNoteReferenece&lt;/span>&lt;span class="p">[])&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kt">string&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">rawCustomTag&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">settingsStore&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">customTag&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">appendContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">dailyNoteRefs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">dailyNoteRef&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 修改写入日记的格式，适配Thino
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1">// 格式为：- 12:00:00 ![[bookId#^refBlockId]]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kr">const&lt;/span> &lt;span class="nx">metaData&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">dailyNoteRef&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">metaData&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 支持nunjucks模板渲染customTag
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kr">const&lt;/span> &lt;span class="nx">customTag&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">rawCustomTag&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">?&lt;/span> &lt;span class="nx">nunjucks&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">renderString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">rawCustomTag&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">metaData&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">blockList&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">dailyNoteRef&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">refBlocks&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">map&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">refBlock&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">createTime&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">refBlock&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createTime&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">createDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">window&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">moment&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">createTime&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">format&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;HH:mm:ss&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="sb">`- &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">createDate&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb"> ![[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getFileName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">dailyNoteRef&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">metaData&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">#^&lt;/span>&lt;span class="si">${&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">refBlock&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">refBlockId&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="si">}&lt;/span>&lt;span class="sb">]]`&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="sb">`- &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">createDate&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb"> &lt;/span>&lt;span class="si">${&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">customTag&lt;/span> &lt;span class="o">?&lt;/span> &lt;span class="s1">&amp;#39; &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nx">customTag&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="si">}&lt;/span>&lt;span class="sb"> ![[&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getFileName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">metaData&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">#^&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">refBlock&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">refBlockId&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">]]`&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="nx">Add&lt;/span> &lt;span class="nx">commentMore&lt;/span> &lt;span class="nx">actions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">bodyContent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">blockList&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;\n&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">bodyContent&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="增加自定义标签设置">增加自定义标签设置
+&lt;/h3>&lt;ul>
+&lt;li>增加一个新的&lt;code>customTag&lt;/code>的设置项，用户可以自定义标签内容&lt;/li>
+&lt;li>增加对nunjucks模板渲染，这样在 [[#修改推送到日记的格式]] 可以将模板中的变量进行渲染，增加自定义程度；&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ts" data-lang="ts">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">private&lt;/span> &lt;span class="nx">customTagSetting&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">void&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="nx">Add&lt;/span> &lt;span class="nx">commentMore&lt;/span> &lt;span class="nx">actions&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">new&lt;/span> &lt;span class="nx">Setting&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">containerEl&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">setName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;自定义标签&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">setDesc&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;为所有导出的笔记添加一个自定义标签，可用于分类或自动化处理，可以使用模板中的变量，例如{{metaData.title}}等，需要在前面加上metaData&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">addText&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">input&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">input&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">setPlaceholder&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;如：#微信读书/{{metaData.title}}&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">setValue&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">settingsStore&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">customTag&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">onChange&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">value&lt;/span>: &lt;span class="kt">string&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">settingsStore&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">actions&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">setCustomTag&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">value&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="使用方法与实际效果">使用方法与实际效果
+&lt;/h2>&lt;ol>
+&lt;li>在插件设置页填写自定义标签内容（支持模板变量）。&lt;/li>
+&lt;li>同步微信读书笔记后，所有推送内容会自动带上自定义标签。&lt;/li>
+&lt;li>标签内容可根据书名、作者等动态变化，便于后续自动化处理。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>实际效果截图：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>设置界面
+&lt;img src="https://pics.shineee.site/2025/06/7bcea3343f0831883441f3a57faa9fd1.png"
+loading="lazy"
+alt="设置界面"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>日记显示
+&lt;img src="https://pics.shineee.site/2025/06/a2b5a2e0e7186a883ff87a08df913e6e.png"
+loading="lazy"
+alt="日记显示"
+>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Thino显示
+&lt;img src="https://pics.shineee.site/2025/06/4a5cc6b8e50f8584bb85503eb23baf71.png"
+loading="lazy"
+alt="Thino显示"
+>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="适用场景与价值">适用场景与价值
+&lt;/h2>&lt;ul>
+&lt;li>适合有微信读书高亮、书评等内容同步需求的 Obsidian 用户。&lt;/li>
+&lt;li>尤其适合需要将笔记推送到 Thino、Memos 等日历/知识管理平台的用户。&lt;/li>
+&lt;li>支持灵活标签与模板变量，极大提升内容的可检索性与自动化处理能力。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>如你是 Thino Pro 会员，可参考&lt;a class="link" href="https://github.com/Quorafind/Obsidian-Thino/discussions/532" target="_blank" rel="noopener"
+>这个例子&lt;/a>直接集成，无需单独使用本插件。&lt;/p>
+&lt;h2 id="相关链接">相关链接
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/orangeshinee/obsidian-weread-plugin-fork/tree/main" target="_blank" rel="noopener"
+>obsidian-weread-plugin-thino&lt;/a> - 本项目仓库&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/zhaohongxuan/obsidian-weread-plugin" target="_blank" rel="noopener"
+>obsidian-weread-plugin&lt;/a> - 社区版微信读书插件&lt;/li>
+&lt;li>&lt;a class="link" href="https://pkmer.cn/products/thino/" target="_blank" rel="noopener"
+>Thino插件&lt;/a> - Thino官方插件&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/Quorafind/Obsidian-Thino/discussions/532" target="_blank" rel="noopener"
+>Thino Pro集成示例&lt;/a> - Thino Pro会员集成方案&lt;/li>
+&lt;/ul></description></item><item><title>Obsidian 个人知识库搭建实践：从配置到应用</title><link>https://blog.shineee.site/p/2024/04/08/obsidian-%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%94%E7%94%A8/</link><pubDate>Mon, 08 Apr 2024 10:00:00 +0800</pubDate><guid>https://blog.shineee.site/p/2024/04/08/obsidian-%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%94%E7%94%A8/</guid><description>&lt;img src="https://pics.shineee.site/2025/04/df4dc34e306b63b4bedb67135828f99b.png" alt="Featured image of post Obsidian 个人知识库搭建实践：从配置到应用" />&lt;p>近日拜读了 guizang 老师关于 #Obsidian 的精彩博文（&lt;a class="link" href="https://mp.weixin.qq.com/s/VRQ_QWjuUqvJC8FeAZgvzw" target="_blank" rel="noopener"
 >链接&lt;/a>），不禁勾起了我与这款强大笔记软件的点滴回忆。曾几何时，我也曾希望借助 Obsidian 打造属于自己的知识宝库，然而那时浅尝辄止，笔记散落各处，未能成体系，实属憾事。&lt;/p>
 &lt;p>在信息爆炸的时代，Readwise、Cubox、Flomo 等工具层出不穷，各具优势，却也让信息碎片化，分散在各个角落，检索整合颇为不便。痛定思痛，我决定重新出发，以 Obsidian 为核心，系统整合博客草稿、网页剪藏、读书笔记等各类信息流，构筑一座真正属于自己的知识殿堂。&lt;/p>
 &lt;hr>
